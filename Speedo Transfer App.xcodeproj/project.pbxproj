@@ -7,8 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3CFAB32C81C810003739CB /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3CFAB22C81C810003739CB /* OnboardingSlide.swift */; };
+		7C3CFAB52C81DF45003739CB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3CFAB42C81DF45003739CB /* OnboardingCollectionViewCell.swift */; };
+		7CA140072C82111E0018232D /* InterDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA13FFF2C82111D0018232D /* InterDisplay-Medium.ttf */; };
+		7CA140082C82111E0018232D /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA140002C82111D0018232D /* Inter-Medium.ttf */; };
+		7CA140092C82111E0018232D /* Inter-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA140012C82111D0018232D /* Inter-ThinItalic.ttf */; };
+		7CA1400A2C82111E0018232D /* Inter-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA140022C82111D0018232D /* Inter-MediumItalic.ttf */; };
+		7CA1400B2C82111E0018232D /* Inter-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA140032C82111E0018232D /* Inter-SemiBoldItalic.ttf */; };
+		7CA1400C2C82111E0018232D /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA140042C82111E0018232D /* Inter-SemiBold.ttf */; };
+		7CA1400D2C82111E0018232D /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA140052C82111E0018232D /* Inter-Thin.ttf */; };
+		7CA1400E2C82111E0018232D /* InterDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CA140062C82111E0018232D /* InterDisplay-Black.ttf */; };
+		7CA140112C8225750018232D /* NoInternetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA140102C8225750018232D /* NoInternetVC.swift */; };
+		7CA140132C822E150018232D /* ServerErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA140122C822E150018232D /* ServerErrorVC.swift */; };
+		7CAC47702C826AC900439771 /* CustomPinkColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC476F2C826AC900439771 /* CustomPinkColor.swift */; };
 		7CBBC92E2C805032005B90D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC92D2C805032005B90D5 /* AppDelegate.swift */; };
-		7CBBC9302C805032005B90D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC92F2C805032005B90D5 /* SceneDelegate.swift */; };
 		7CBBC9322C805032005B90D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9312C805032005B90D5 /* ViewController.swift */; };
 		7CBBC9352C805032005B90D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBBC9332C805032005B90D5 /* Main.storyboard */; };
 		7CBBC9372C805038005B90D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBBC9362C805038005B90D5 /* Assets.xcassets */; };
@@ -16,6 +28,12 @@
 		7CBBC9452C80503A005B90D5 /* Speedo_Transfer_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9442C80503A005B90D5 /* Speedo_Transfer_AppTests.swift */; };
 		7CBBC94F2C80503A005B90D5 /* Speedo_Transfer_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC94E2C80503A005B90D5 /* Speedo_Transfer_AppUITests.swift */; };
 		7CBBC9512C80503A005B90D5 /* Speedo_Transfer_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9502C80503A005B90D5 /* Speedo_Transfer_AppUITestsLaunchTests.swift */; };
+		7CBBC96C2C805382005B90D5 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CBBC9692C805381005B90D5 /* Inter-Black.ttf */; };
+		7CBBC96D2C805382005B90D5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CBBC96A2C805381005B90D5 /* Inter-Regular.ttf */; };
+		7CBBC96E2C805382005B90D5 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CBBC96B2C805381005B90D5 /* Inter-Bold.ttf */; };
+		7CBBC9742C8054C8005B90D5 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9732C8054C8005B90D5 /* OnboardingVC.swift */; };
+		7CBBC9772C806A62005B90D5 /* Gradient View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9762C806A62005B90D5 /* Gradient View.swift */; };
+		7CBBC9792C8098FC005B90D5 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9782C8098FC005B90D5 /* CustomPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +54,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C3CFAB22C81C810003739CB /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		7C3CFAB42C81DF45003739CB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CA13FFF2C82111D0018232D /* InterDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterDisplay-Medium.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/InterDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		7CA140002C82111D0018232D /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Medium.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-Medium.ttf"; sourceTree = "<group>"; };
+		7CA140012C82111D0018232D /* Inter-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-ThinItalic.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-ThinItalic.ttf"; sourceTree = "<group>"; };
+		7CA140022C82111D0018232D /* Inter-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-MediumItalic.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-MediumItalic.ttf"; sourceTree = "<group>"; };
+		7CA140032C82111E0018232D /* Inter-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-SemiBoldItalic.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		7CA140042C82111E0018232D /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-SemiBold.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		7CA140052C82111E0018232D /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Thin.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-Thin.ttf"; sourceTree = "<group>"; };
+		7CA140062C82111E0018232D /* InterDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterDisplay-Black.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/InterDisplay-Black.ttf"; sourceTree = "<group>"; };
+		7CA140102C8225750018232D /* NoInternetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetVC.swift; sourceTree = "<group>"; };
+		7CA140122C822E150018232D /* ServerErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorVC.swift; sourceTree = "<group>"; };
+		7CAC476F2C826AC900439771 /* CustomPinkColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinkColor.swift; sourceTree = "<group>"; };
 		7CBBC92A2C805032005B90D5 /* Speedo Transfer App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speedo Transfer App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBBC92D2C805032005B90D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CBBC92F2C805032005B90D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7CBBC9312C805032005B90D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7CBBC9342C805032005B90D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CBBC9362C805038005B90D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +79,12 @@
 		7CBBC94A2C80503A005B90D5 /* Speedo Transfer AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speedo Transfer AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBBC94E2C80503A005B90D5 /* Speedo_Transfer_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speedo_Transfer_AppUITests.swift; sourceTree = "<group>"; };
 		7CBBC9502C80503A005B90D5 /* Speedo_Transfer_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speedo_Transfer_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7CBBC9692C805381005B90D5 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Black.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-Black.ttf"; sourceTree = "<group>"; };
+		7CBBC96A2C805381005B90D5 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Regular.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-Regular.ttf"; sourceTree = "<group>"; };
+		7CBBC96B2C805381005B90D5 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Bold.ttf"; path = "../../../Downloads/Inter-4/extras/ttf/Inter-Bold.ttf"; sourceTree = "<group>"; };
+		7CBBC9732C8054C8005B90D5 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		7CBBC9762C806A62005B90D5 /* Gradient View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient View.swift"; sourceTree = "<group>"; };
+		7CBBC9782C8098FC005B90D5 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +112,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C3CFAB12C81C767003739CB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7CBBC9732C8054C8005B90D5 /* OnboardingVC.swift */,
+				7C3CFAB42C81DF45003739CB /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		7CA1400F2C82253A0018232D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7CA140102C8225750018232D /* NoInternetVC.swift */,
+				7CA140122C822E150018232D /* ServerErrorVC.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		7CAC476E2C826A8400439771 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7CAC476F2C826AC900439771 /* CustomPinkColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7CBBC9212C805031005B90D5 = {
 			isa = PBXGroup;
 			children = (
+				7CAC476E2C826A8400439771 /* Extensions */,
+				7CBBC9752C806163005B90D5 /* Custom Views */,
+				7CBBC9702C805434005B90D5 /* Models */,
+				7CBBC96F2C80541F005B90D5 /* Controllers */,
+				7CBBC9642C80514B005B90D5 /* Fonts */,
 				7CBBC92C2C805032005B90D5 /* Speedo Transfer App */,
 				7CBBC9432C80503A005B90D5 /* Speedo Transfer AppTests */,
 				7CBBC94D2C80503A005B90D5 /* Speedo Transfer AppUITests */,
@@ -100,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				7CBBC92D2C805032005B90D5 /* AppDelegate.swift */,
-				7CBBC92F2C805032005B90D5 /* SceneDelegate.swift */,
 				7CBBC9312C805032005B90D5 /* ViewController.swift */,
 				7CBBC9332C805032005B90D5 /* Main.storyboard */,
 				7CBBC9362C805038005B90D5 /* Assets.xcassets */,
@@ -125,6 +191,50 @@
 				7CBBC9502C80503A005B90D5 /* Speedo_Transfer_AppUITestsLaunchTests.swift */,
 			);
 			path = "Speedo Transfer AppUITests";
+			sourceTree = "<group>";
+		};
+		7CBBC9642C80514B005B90D5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7CA140002C82111D0018232D /* Inter-Medium.ttf */,
+				7CA140022C82111D0018232D /* Inter-MediumItalic.ttf */,
+				7CA140042C82111E0018232D /* Inter-SemiBold.ttf */,
+				7CA140032C82111E0018232D /* Inter-SemiBoldItalic.ttf */,
+				7CA140052C82111E0018232D /* Inter-Thin.ttf */,
+				7CA140012C82111D0018232D /* Inter-ThinItalic.ttf */,
+				7CA140062C82111E0018232D /* InterDisplay-Black.ttf */,
+				7CA13FFF2C82111D0018232D /* InterDisplay-Medium.ttf */,
+				7CBBC9692C805381005B90D5 /* Inter-Black.ttf */,
+				7CBBC96B2C805381005B90D5 /* Inter-Bold.ttf */,
+				7CBBC96A2C805381005B90D5 /* Inter-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7CBBC96F2C80541F005B90D5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7CA1400F2C82253A0018232D /* Error */,
+				7C3CFAB12C81C767003739CB /* Onboarding */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7CBBC9702C805434005B90D5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7C3CFAB22C81C810003739CB /* OnboardingSlide.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7CBBC9752C806163005B90D5 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CBBC9762C806A62005B90D5 /* Gradient View.swift */,
+				7CBBC9782C8098FC005B90D5 /* CustomPageControl.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +341,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA1400C2C82111E0018232D /* Inter-SemiBold.ttf in Resources */,
+				7CA140072C82111E0018232D /* InterDisplay-Medium.ttf in Resources */,
+				7CBBC96E2C805382005B90D5 /* Inter-Bold.ttf in Resources */,
 				7CBBC93A2C805038005B90D5 /* LaunchScreen.storyboard in Resources */,
+				7CA1400B2C82111E0018232D /* Inter-SemiBoldItalic.ttf in Resources */,
+				7CA140092C82111E0018232D /* Inter-ThinItalic.ttf in Resources */,
+				7CA1400E2C82111E0018232D /* InterDisplay-Black.ttf in Resources */,
+				7CBBC96D2C805382005B90D5 /* Inter-Regular.ttf in Resources */,
+				7CA140082C82111E0018232D /* Inter-Medium.ttf in Resources */,
+				7CA1400A2C82111E0018232D /* Inter-MediumItalic.ttf in Resources */,
 				7CBBC9372C805038005B90D5 /* Assets.xcassets in Resources */,
 				7CBBC9352C805032005B90D5 /* Main.storyboard in Resources */,
+				7CBBC96C2C805382005B90D5 /* Inter-Black.ttf in Resources */,
+				7CA1400D2C82111E0018232D /* Inter-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +379,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CBBC9792C8098FC005B90D5 /* CustomPageControl.swift in Sources */,
 				7CBBC9322C805032005B90D5 /* ViewController.swift in Sources */,
+				7CBBC9742C8054C8005B90D5 /* OnboardingVC.swift in Sources */,
 				7CBBC92E2C805032005B90D5 /* AppDelegate.swift in Sources */,
-				7CBBC9302C805032005B90D5 /* SceneDelegate.swift in Sources */,
+				7CA140112C8225750018232D /* NoInternetVC.swift in Sources */,
+				7C3CFAB32C81C810003739CB /* OnboardingSlide.swift in Sources */,
+				7C3CFAB52C81DF45003739CB /* OnboardingCollectionViewCell.swift in Sources */,
+				7CBBC9772C806A62005B90D5 /* Gradient View.swift in Sources */,
+				7CA140132C822E150018232D /* ServerErrorVC.swift in Sources */,
+				7CAC47702C826AC900439771 /* CustomPinkColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
