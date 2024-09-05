@@ -9,11 +9,8 @@ class ServerErrorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.image = UIImage(named: "Error")
         
-        messageBtn.layer.borderWidth = 1
-        messageBtn.layer.borderColor = UIColor.customPink.cgColor
-        messageBtn.layer.cornerRadius = 5
+        
 
     }
     

@@ -15,7 +15,6 @@ class NoInternetVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.image = UIImage(named: "No Internet")
     }
     
 

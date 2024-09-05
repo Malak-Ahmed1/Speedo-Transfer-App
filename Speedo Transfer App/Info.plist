@@ -8,8 +8,6 @@
 		<string>Inter-Bold.ttf</string>
 		<string>Inter-Regular.ttf</string>
 	</array>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
