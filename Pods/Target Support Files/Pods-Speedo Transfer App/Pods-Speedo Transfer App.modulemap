@@ -1,0 +1,6 @@
+framework module Pods_Speedo_Transfer_App {
+  umbrella header "Pods-Speedo Transfer App-umbrella.h"
+
+  export *
+  module * { export * }
+}
