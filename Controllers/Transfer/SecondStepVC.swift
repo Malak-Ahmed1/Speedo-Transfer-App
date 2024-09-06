@@ -27,7 +27,10 @@ class SecondStepVC: UIViewController {
     
     @IBAction func confirmBtnClicked(_ sender: Any) {
         delegate?.goToNextStep(currentStep: self)
+        
+        LocalNotificationManager.shared.scheduleNotification(title: "Successful Transfer", body: "body", triggerDate: Date().addingTimeInterval(5))
     }
+    
     
     @IBAction func previousBtnClicked(_ sender: Any) {
         delegate?.goToPreviousStep(currentStep: self)

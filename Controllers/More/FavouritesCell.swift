@@ -1,21 +1,23 @@
 //
-//  FavouriteListCell.swift
+//  FavouritesCell.swift
 //  Speedo Transfer App
 //
-//  Created by 1234 on 03/09/2024.
+//  Created by 1234 on 06/09/2024.
 //
 
 import UIKit
 
-class FavouriteListCell: UITableViewCell {
+protocol FavouritesCellDelegate: AnyObject {
+    func didTapDeleteButton(on cell: FavouritesCell)
+    func didTapEditButton(on cell: FavouritesCell)
+}
 
-    
-    @IBOutlet weak var deleteButton: UIButton!
+class FavouritesCell: UITableViewCell {
 
-    
     @IBOutlet weak var userName: UILabel!
     
-    
+    weak var delegate: FavouritesCellDelegate?
+
     @IBOutlet weak var accountNumber: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +38,15 @@ class FavouriteListCell: UITableViewCell {
         self.accountNumber.text = accountNumber
       
     }
-   
+  
+    @IBAction func deleteBtnClicked(_ sender: Any) {
+        
+        delegate?.didTapDeleteButton(on: self)
+        
+    }
+    @IBAction func editBtnClicked(_ sender: Any) {
+        delegate?.didTapEditButton(on: self)
+    
+ }
 }
 

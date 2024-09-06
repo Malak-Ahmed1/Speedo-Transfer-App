@@ -48,14 +48,14 @@ class FavouriteListVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(favArr.count, 2)
+        return favArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favouriteListTable.dequeueReusableCell(withIdentifier: "FavouriteListCell", for: indexPath) as! FavouriteListCell
         
-        let dataIndex = favArr.count - 2 + indexPath.row
-        let data = favArr[dataIndex]
+        
+        let data = favArr[indexPath.row]
         cell.setUpCell(userName: data.userName!, accountNumber: data.accountNumber!)
         return cell
     }
