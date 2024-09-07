@@ -6,10 +6,9 @@
 //
 
 import UIKit
-class CustomRecentTransactionCell: UITableViewCell {
+class RecentTransactionCell: UITableViewCell {
 
     
-    @IBOutlet weak var visaIconimage: UIImageView!
     
     
     
@@ -31,8 +30,7 @@ class CustomRecentTransactionCell: UITableViewCell {
         // Initialization code
     }
     
-    func setUpCell (visaIcon: UIImage, reciepentName: String, visaInfo: String, date: String, amount: Double) {
-        visaIconimage.image = visaIcon
+    func setUpCell (reciepentName: String, visaInfo: String, date: String, amount: Double) {
         reciepentNameLabel.text = reciepentName
         visaInfoLabel.text = visaInfo
         dateLabel.text = date

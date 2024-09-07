@@ -4,7 +4,22 @@
         <attribute name="accountNumber" optional="YES" attributeType="String"/>
         <attribute name="userName" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="NotificationEntity" representedClassName="NotificationEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isReceived" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="message" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="recipientName" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="visaInfo" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="FavouriteRecipient" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="NotificationEntity" positionX="-63" positionY="27" width="128" height="89"/>
+        <element name="Transaction" positionX="-63" positionY="0" width="128" height="104"/>
     </elements>
 </model>

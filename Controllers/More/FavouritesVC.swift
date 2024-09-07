@@ -26,9 +26,12 @@ class FavouritesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         favouriteListTable.register(UINib(nibName: "FavouritesCell", bundle: nil), forCellReuseIdentifier: "FavouritesCell")
         
-        fetchList()
       
     }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            fetchList() // Reload the transactions list whenever the view appears
+        }
     
      func fetchList() {
         

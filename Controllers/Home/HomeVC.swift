@@ -1,16 +1,12 @@
 import UIKit
 
-struct Recent {
-    var icon: UIImage
-    var recipientName: String
-    var visaInfo: String
-    var date: String
-    var amount: Double
-}
+
 
 class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var arr: [Recent] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    var recentTransactionArr: [Transaction] = []
 
     @IBOutlet weak var recentTransactionsTable: UITableView!
 
@@ -20,29 +16,55 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         recentTransactionsTable.dataSource = self
         
         // Registering the custom cell if not using storyboard prototype cell
-        recentTransactionsTable.register(UINib(nibName: "CustomRecentTransactionCell", bundle: nil), forCellReuseIdentifier: "CustomRecentTransactionCell")
-
-        if let visaIcon = UIImage(named: "Visa") {
-            arr.append(Recent(icon: visaIcon, recipientName: "Malak Ahmed", visaInfo: "Visa MasterCard. 1234", date: "Today 12:24 AM", amount: 500))
-            arr.append(Recent(icon: visaIcon, recipientName: "Ahmed Mohammed", visaInfo: "Visa MasterCard. 1234", date: "Today 12:24 AM", amount: 300))
-            arr.append(Recent(icon: visaIcon, recipientName: "Ahmed Mohammed", visaInfo: "Visa MasterCard. 1234", date: "Today 12:24 AM", amount: 100))
-            arr.append(Recent(icon: visaIcon, recipientName: "Walled Mostafa", visaInfo: "Visa MasterCard. 1234", date: "Today 12:24 AM", amount: 1200))
-            arr.append(Recent(icon: visaIcon, recipientName: "Ahmed Mohammed", visaInfo: "Visa MasterCard. 1234", date: "Today 12:24 AM", amount: 300))
-            arr.append(Recent(icon: visaIcon, recipientName: "Ahmed Mohammed", visaInfo: "Visa MasterCard. 1234", date: "Today 12:24 AM", amount: 300))
+        recentTransactionsTable.register(UINib(nibName: "RecentTransactionCell", bundle: nil), forCellReuseIdentifier: "RecentTransactionCell")
+        
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            fetchList() // Reload the transactions list whenever the view appears
+        }
+    
+    @IBAction func notificationBtnClicked(_ sender: Any) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let notificationsVC = sb.instantiateViewController(withIdentifier: "NotificationsVC") as! NotificationsVC
+        notificationsVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(notificationsVC, animated: true)
+        navigationItem.title = ""
+        notificationsVC.title = "Notifications"
+        
+    }
+    func fetchList() {
+        do {
+            self.recentTransactionArr = try context.fetch(Transaction.fetchRequest())
+            DispatchQueue.main.async {
+                self.recentTransactionsTable.reloadData()
+            }
+        } catch {
+            print("Error Fetching")
         }
     }
 
+    @IBAction func viewBtnClicked(_ sender: Any) {
+        
+        tabBarController?.selectedIndex = 2
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return recentTransactionArr.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = recentTransactionsTable.dequeueReusableCell(withIdentifier: "CustomRecentTransactionCell", for: indexPath) as! CustomRecentTransactionCell
-        let data = arr[indexPath.row]
-        cell.setUpCell(visaIcon: data.icon, reciepentName: data.recipientName, visaInfo: data.visaInfo, date: data.date, amount: data.amount)
-        
-        return cell
-    }
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = recentTransactionsTable.dequeueReusableCell(withIdentifier: "RecentTransactionCell", for: indexPath) as! RecentTransactionCell
+            let data = recentTransactionArr[indexPath.row]
+            cell.setUpCell(reciepentName: data.recipientName!, visaInfo: data.visaInfo!, date: data.date!, amount: data.amount)
+            
+          
+            return cell
+        }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 77

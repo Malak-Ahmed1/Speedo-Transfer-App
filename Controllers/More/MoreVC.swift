@@ -54,6 +54,14 @@ class MoreVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         frame.size.width = 343
         cell.contentView.frame = frame
     }
+    @IBAction func backBtnClicked(_ sender: Any) {
+    
+        tabBarController?.selectedIndex = 0
+        
+        
+    }
+
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var viewControllerToPresent: UIViewController?
@@ -65,12 +73,15 @@ class MoreVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         case 1:
             let sb = UIStoryboard(name: "Main", bundle: nil)
             viewControllerToPresent = sb.instantiateViewController(withIdentifier: "FavouritesVC") as! FavouritesVC
-            navigationController?.title = "Favourite"
+            viewControllerToPresent?.title = "Favourite"
+
                 //To.Do: reload table
-            
+             
         case 2:
             let sb = UIStoryboard(name: "Main", bundle: nil)
             viewControllerToPresent = sb.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+            viewControllerToPresent?.title = "Profile"
+
 
         case 3:
             let sb = UIStoryboard(name: "Main", bundle: nil)
