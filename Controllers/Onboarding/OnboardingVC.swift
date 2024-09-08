@@ -44,18 +44,28 @@ class OnboardingVC: UIViewController {
 
     @IBAction func nextBtnClicked(_ sender: UIButton) {
         if currentPage == slides.count - 1 {
-            print("Sign Up")
+            goToRegister()
         } else {
         currentPage += 1
         let indexPath = IndexPath(item: currentPage, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+        
     }
+
+    
 
     @IBAction func skipBtnClicked(_ sender: UIButton) {
+        goToRegister()
     }
-
-}
+    func goToRegister() {
+        let sb = UIStoryboard(name: "Main2", bundle: nil)
+        let registerVC = sb.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        registerVC.modalPresentationStyle = .fullScreen
+        self.present(registerVC, animated: true)
+    }
+ }
+  
 
 extension OnboardingVC : UICollectionViewDelegate,
     UICollectionViewDataSource,

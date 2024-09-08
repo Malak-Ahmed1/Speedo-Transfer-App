@@ -64,7 +64,7 @@ class SecondStepVC: UIViewController {
     }
 
     func addNotification(for transaction: Transaction) {
-        // Create a notification entity
+        
         let newNotification = NotificationEntity(context: self.context)
         // Check for transaction type
         if transaction.status == "Failed" {
