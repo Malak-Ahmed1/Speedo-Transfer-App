@@ -7,46 +7,37 @@
 
 import UIKit
 
-protocol FavouritesCellDelegate: AnyObject {
-    func didTapDeleteButton(on cell: FavouritesCell)
-    func didTapEditButton(on cell: FavouritesCell)
-}
-
 class FavouritesCell: UITableViewCell {
-
-    @IBOutlet weak var userName: UILabel!
     
-    weak var delegate: FavouritesCellDelegate?
+    var deleteAction: (() -> Void)?
+    var editAction: (() -> Void)?
 
-    @IBOutlet weak var accountNumber: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
-    func setUpCell (userName: String, accountNumber: String) {
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var accountNumberLabel: UILabel!
     
-    
-        self.userName.text = userName
-        self.accountNumber.text = accountNumber
-      
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        deleteAction?()
     }
-  
-    @IBAction func deleteBtnClicked(_ sender: Any) {
-        
-        delegate?.didTapDeleteButton(on: self)
-        
-    }
-    @IBAction func editBtnClicked(_ sender: Any) {
-        delegate?.didTapEditButton(on: self)
     
- }
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        editAction?()
+    }
+    
+    func setUpCell(userName: String, accountNumber: String) {
+        userNameLabel.text = userName
+        accountNumberLabel.text = accountNumber
+    }
 }
+
 

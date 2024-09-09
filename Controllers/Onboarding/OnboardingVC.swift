@@ -7,89 +7,93 @@
 
 import UIKit
 
-class OnboardingVC: UIViewController {
+protocol OnboardingView: AnyObject {
+    func updateCurrentPage(_ page: Int)
+}
 
-    
-    
+
+class OnboardingVC: UIViewController, OnboardingView {
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var skipBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
-    
     @IBOutlet weak var pageControl: UIPageControl!
-    var currentPage: Int = 0 {
+
+    private var presenter: OnboardingPresenter!
+    private var currentPage: Int = 0 {
         didSet {
             pageControl.currentPage = currentPage
-            if currentPage == slides.count - 1 {
-                nextBtn.setTitle("Get Started", for: .normal)
-            } else {
-                nextBtn.setTitle("Next", for: .normal)
-            }
+            nextBtn.setTitle(presenter.didTapNextButton(currentPage: currentPage) ? "Get Started" : "Next", for: .normal)
         }
     }
-    
-    
-    let slides: [OnboardingSlide] = [
-        OnboardingSlide (title: "Amont", description: "Send money fast with simple steps. Create account, Confirmation, Payment. Simple.", image:UIImage(named: "Fast Loading")!),
-          OnboardingSlide(title: "Confirmation", description: "Transfer funds instantly to friends and family worldwide, strong shield protecting a money.", image: UIImage(named: "Currency")!),
-          OnboardingSlide(title: "Payment", description: "Enjoy peace of mind with our secure platform  Transfer funds instantly to friends.", image: UIImage(named: "Payment")!)
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-
+        presenter = OnboardingPresenter(view: self)
+        setupCollectionView()
     }
     
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
 
     @IBAction func nextBtnClicked(_ sender: UIButton) {
-        if currentPage == slides.count - 1 {
-            goToRegister()
+        if presenter.didTapNextButton(currentPage: currentPage) {
+            completeOnboarding()
         } else {
-        currentPage += 1
-        let indexPath = IndexPath(item: currentPage, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            currentPage += 1
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
-        
     }
 
     
-
     @IBAction func skipBtnClicked(_ sender: UIButton) {
         goToRegister()
     }
+    
     func goToRegister() {
         let sb = UIStoryboard(name: "Main2", bundle: nil)
         let registerVC = sb.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
         registerVC.modalPresentationStyle = .fullScreen
-        self.present(registerVC, animated: true)
+        present(registerVC, animated: true)
     }
- }
-  
+    
+    // MARK: - OnboardingView Protocol
+    
+    func updateCurrentPage(_ page: Int) {
+        currentPage = page
+    }
+    func completeOnboarding() {
+        UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+        goToRegister()
+    }
 
-extension OnboardingVC : UICollectionViewDelegate,
-    UICollectionViewDataSource,
-   UICollectionViewDelegateFlowLayout {
+}
+
+extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return slides.count
+        return presenter.getSlides().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as! OnboardingCollectionViewCell
-        cell.setUp(slides[indexPath.row])
+        let slide = presenter.getSlides()[indexPath.row]
+        cell.setUp(slide)
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width ,height: collectionView.frame.height)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
-         currentPage = Int(scrollView.contentOffset.x / width)
-        
+        let page = Int(scrollView.contentOffset.x / width)
+        presenter.didScrollToPage(page)
     }
-    
 }
+

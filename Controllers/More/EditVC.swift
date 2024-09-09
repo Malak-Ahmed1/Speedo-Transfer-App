@@ -7,53 +7,53 @@
 
 import UIKit
 
+protocol EditView: AnyObject {
+    func displayRecipientDetails(name: String, account: String)
+    func showError(message: String)
+}
+
 class EditVC: UIViewController {
 
     @IBOutlet weak var recipientNameTextField: CustomTextField!
     @IBOutlet weak var recipientAccountTextField: CustomTextField!
     
-    // Recipient to be edited
     var recipient: FavouriteRecipient?
-
-    // Closure to notify FavouritesVC about the update
+    var presenter: EditFavouriteProtocol!
     var onSave: ((FavouriteRecipient) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Pre-fill the text fields with the recipient data
-        if let recipient = recipient {
-            recipientNameTextField.text = recipient.userName
-            recipientAccountTextField.text = recipient.accountNumber
-        }
+        presenter = EditFavouritePresenter(view: self, recipient: recipient)
+        presenter.viewDidLoad()
     }
     
     @IBAction func saveBtnClicked(_ sender: Any) {
-        guard let recipient = recipient else { return }
-        
-        
-        
-        // To.Do: check first if user exits on API
-        
-        
-        // Update the recipient object
-        recipient.userName = recipientNameTextField.text
-        recipient.accountNumber = recipientAccountTextField.text
-        
-        // Save changes to Core Data
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save edited recipient: \(error)")
+        guard let name = recipientNameTextField.text, !name.isEmpty,
+              let account = recipientAccountTextField.text, !account.isEmpty else {
+            showError(message: "Please fill in all fields.")
             return
         }
-
-        // Notify FavouritesVC about the update
-        onSave?(recipient)
-
-        // Dismiss the view controller
+        
+        presenter.saveRecipient(name: name, account: account)
+        
+        // Ensure the updated recipient is passed to onSave
+        if let updatedRecipient = recipient {
+            onSave?(updatedRecipient)
+            
+        }
+        
         dismiss(animated: true)
     }
+
 }
 
+extension EditVC: EditView {
+    func displayRecipientDetails(name: String, account: String) {
+        recipientNameTextField.text = name
+        recipientAccountTextField.text = account
+    }
+    
+    func showError(message: String) {
+      print(message)
+    }
+}

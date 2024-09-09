@@ -1,53 +1,39 @@
-//
-//  HomePresenter.swift
-//  Speedo Transfer App
-//
-//  Created by 1234 on 08/09/2024.
-//
-
 import Foundation
-import UIKit
-import CoreData
 
 protocol HomePresenterProtocol: AnyObject {
-    
-    var recentTransactionArr: [Transaction] { get }
-    func getRecentTransactions()
+    func fetchRecentTransactions()
+    func getTransaction(at index: Int) -> Transaction?
     func getTransactionCount() -> Int
-    func getTransactionArr() -> [Transaction]
 }
 
-class HomePresenter {
+class HomePresenter: HomePresenterProtocol {
     
-    weak var view: HomeView?
-    var recentTransactionArr: [Transaction] = []
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private weak var view: HomeView?
+    private var recentTransactionArr: [Transaction] = []
+    private let transactionService = TransactionService()
     
     init(view: HomeView) {
         self.view = view
     }
     
-    
-}
-
-extension HomePresenter: HomePresenterProtocol {
-    
-    func getRecentTransactions() {
+    func fetchRecentTransactions() {
         do {
-            self.recentTransactionArr = try context.fetch(Transaction.fetchRequest())
+            // Fetch a limited number of recent transactions (e.g., 5)
+            self.recentTransactionArr = try transactionService.fetchRecentTransactions(limit: 5)
             DispatchQueue.main.async {
-                self.view?.displayTransaction(transactions: self.recentTransactionArr)
+                self.view?.displayTransactions(transactions: self.recentTransactionArr)
             }
         } catch {
-            print("Error Fetching")
+            print("Error Fetching Recent Transactions")
         }
     }
     
-    func getTransactionCount() -> Int {
-        return self.recentTransactionArr.count
+    func getTransaction(at index: Int) -> Transaction? {
+        guard index >= 0 && index < recentTransactionArr.count else { return nil }
+        return recentTransactionArr[index]
     }
     
-    func getTransactionArr() -> [Transaction] {
-        return recentTransactionArr
+    func getTransactionCount() -> Int {
+        return recentTransactionArr.count
     }
 }

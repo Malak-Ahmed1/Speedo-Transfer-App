@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/a1234/Desktop/Speedo Transfer App/Controllers/Home/NotificationEntity+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/a1234/Desktop/Speedo Transfer App/Controllers/Home/NotificationEntity+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Speedo Transfer App.xcodeproj">
    </FileRef>
    <FileRef

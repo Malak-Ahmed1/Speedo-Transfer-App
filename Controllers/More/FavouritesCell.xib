@@ -62,7 +62,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="editBtnClicked:" destination="KUh-Qt-dsB" eventType="touchUpInside" id="Q8t-I8-Iuq"/>
+                                    <action selector="editButtonTapped:" destination="KUh-Qt-dsB" eventType="touchUpInside" id="dnP-2w-w4O"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZd-cJ-rkm">
@@ -74,7 +74,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="deleteBtnClicked:" destination="KUh-Qt-dsB" eventType="touchUpInside" id="kzN-Ib-JOs"/>
+                                    <action selector="deleteButtonTapped:" destination="KUh-Qt-dsB" eventType="touchUpInside" id="9XP-ZC-ghX"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-12" translatesAutoresizingMaskIntoConstraints="NO" id="NCt-cs-BxY">
@@ -120,8 +120,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Nef-K5-ocb"/>
             <connections>
-                <outlet property="accountNumber" destination="6QX-Dz-Wlw" id="YMr-G3-BMe"/>
-                <outlet property="userName" destination="3Gz-VI-GS3" id="4jA-98-kbh"/>
+                <outlet property="accountNumberLabel" destination="6QX-Dz-Wlw" id="KpU-bG-m2m"/>
+                <outlet property="userNameLabel" destination="3Gz-VI-GS3" id="7GH-dB-7TQ"/>
             </connections>
             <point key="canvasLocation" x="169.56521739130437" y="102.79017857142857"/>
         </tableViewCell>

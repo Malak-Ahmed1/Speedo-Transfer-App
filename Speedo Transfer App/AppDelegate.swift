@@ -18,7 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         UNUserNotificationCenter.current().delegate = self
         LocalNotificationManager.shared.requestNotificationAuthorization()
-        
+//        let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let storyboard2 = UIStoryboard(name: "Main2", bundle: nil)
+//
+//            
+//            let initialVC: UIViewController
+//            
+//            if hasCompletedOnboarding {
+//                initialVC = storyboard2.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+//            } else {
+//                initialVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingVC
+//            }
+//            
+//            window = UIWindow(frame: UIScreen.main.bounds)
+//            window?.rootViewController = initialVC
+//            window?.makeKeyAndVisible()
         
 
         return true
