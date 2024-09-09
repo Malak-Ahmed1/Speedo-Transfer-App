@@ -13,6 +13,7 @@
 		7C0BE2EE2C8F2C2B0032626C /* SecondStepPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BE2ED2C8F2C2B0032626C /* SecondStepPresenter.swift */; };
 		7C0BE2F02C8F2F860032626C /* ThirdStepPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BE2EF2C8F2F860032626C /* ThirdStepPresenter.swift */; };
 		7C0BE2F22C8F32990032626C /* ContainerPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BE2F12C8F32990032626C /* ContainerPagePresenter.swift */; };
+		7C0BE2F72C8F37040032626C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0BE2F62C8F37040032626C /* Main.storyboard */; };
 		7C3AC3D72C8B11D7004C4D2D /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */; };
 		7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */; };
 		7C3AC3DA2C8B11FB004C4D2D /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */; };
@@ -39,7 +40,6 @@
 		7C9DEEDF2C89AADC0084EF5B /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9DEEDD2C89AADC0084EF5B /* Main2.storyboard */; };
 		7C9DEEE32C89E14E0084EF5B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DEEE12C89E14D0084EF5B /* SignUpVC.swift */; };
 		7C9DEEE42C89E14E0084EF5B /* SignUp2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DEEE22C89E14D0084EF5B /* SignUp2VC.swift */; };
-		7C9E3A1E2C87451F00F304D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9E3A1D2C87451F00F304D3 /* Main.storyboard */; };
 		7C9E3A232C8749C500F304D3 /* FavouriteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E3A212C8749C500F304D3 /* FavouriteListCell.swift */; };
 		7C9E3A242C8749C500F304D3 /* FavouriteListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9E3A222C8749C500F304D3 /* FavouriteListCell.xib */; };
 		7C9E3A262C874D2D00F304D3 /* FavouriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E3A252C874D2D00F304D3 /* FavouriteListVC.swift */; };
@@ -122,6 +122,7 @@
 		7C0BE2ED2C8F2C2B0032626C /* SecondStepPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepPresenter.swift; sourceTree = "<group>"; };
 		7C0BE2EF2C8F2F860032626C /* ThirdStepPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStepPresenter.swift; sourceTree = "<group>"; };
 		7C0BE2F12C8F32990032626C /* ContainerPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPagePresenter.swift; sourceTree = "<group>"; };
+		7C0BE2F62C8F37040032626C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
 		7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCell.xib; sourceTree = "<group>"; };
 		7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
@@ -148,7 +149,6 @@
 		7C9DEEDE2C89AADC0084EF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../Speedo-Transfer-App/trialUITests/trial/Base.lproj/Main2.storyboard"; sourceTree = "<group>"; };
 		7C9DEEE12C89E14D0084EF5B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		7C9DEEE22C89E14D0084EF5B /* SignUp2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2VC.swift; sourceTree = "<group>"; };
-		7C9E3A1D2C87451F00F304D3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		7C9E3A212C8749C500F304D3 /* FavouriteListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListCell.swift; sourceTree = "<group>"; };
 		7C9E3A222C8749C500F304D3 /* FavouriteListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteListCell.xib; sourceTree = "<group>"; };
 		7C9E3A252C874D2D00F304D3 /* FavouriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListVC.swift; sourceTree = "<group>"; };
@@ -403,7 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				7CBBC92D2C805032005B90D5 /* AppDelegate.swift */,
-				7C9E3A1D2C87451F00F304D3 /* Main.storyboard */,
+				7C0BE2F62C8F37040032626C /* Main.storyboard */,
 				7C9DEEDD2C89AADC0084EF5B /* Main2.storyboard */,
 				7CBBC9312C805032005B90D5 /* ViewController.swift */,
 				7CBBC9362C805038005B90D5 /* Assets.xcassets */,
@@ -629,6 +629,7 @@
 				7CBBC96E2C805382005B90D5 /* Inter-Bold.ttf in Resources */,
 				7CBBC93A2C805038005B90D5 /* LaunchScreen.storyboard in Resources */,
 				7C9DEEDF2C89AADC0084EF5B /* Main2.storyboard in Resources */,
+				7C0BE2F72C8F37040032626C /* Main.storyboard in Resources */,
 				7CA1400B2C82111E0018232D /* Inter-SemiBoldItalic.ttf in Resources */,
 				7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */,
 				7CA140092C82111E0018232D /* Inter-ThinItalic.ttf in Resources */,
@@ -641,7 +642,6 @@
 				7CA1400A2C82111E0018232D /* Inter-MediumItalic.ttf in Resources */,
 				7CBBC9372C805038005B90D5 /* Assets.xcassets in Resources */,
 				7C9A656F2C8A3212009DFE5C /* MoreTableCell.xib in Resources */,
-				7C9E3A1E2C87451F00F304D3 /* Main.storyboard in Resources */,
 				7C9DC6592C848B880095E8C5 /* RecentTransactionCell.xib in Resources */,
 				7CBBC96C2C805382005B90D5 /* Inter-Black.ttf in Resources */,
 				7CA1400D2C82111E0018232D /* Inter-Thin.ttf in Resources */,
