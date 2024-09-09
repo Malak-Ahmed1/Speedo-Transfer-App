@@ -12,11 +12,14 @@ import CoreData
 protocol SecondStepProtocol: AnyObject{
     
  func confirmTransaction(recipientName: String?, firstAmount: String?)
+
 }
+
+
 class SecondStepPresenter {
     private weak var view: SecondStepView?
     private let context: NSManagedObjectContext
-    
+
     init(view: SecondStepView, context: NSManagedObjectContext) {
         self.view = view
         self.context = context
@@ -75,4 +78,5 @@ extension SecondStepPresenter: SecondStepProtocol {
         addNotification(for: newTransaction)
         LocalNotificationManager.shared.scheduleNotification(title: "Notification", body: "Successful Transfer", triggerDate: Date().addingTimeInterval(3))
     }
+  
 }

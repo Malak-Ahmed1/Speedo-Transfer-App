@@ -20,8 +20,8 @@ class HomePresenter: HomePresenterProtocol {
         do {
             // Fetch a limited number of recent transactions (e.g., 5)
             self.recentTransactionArr = try transactionService.fetchRecentTransactions(limit: 5)
-            DispatchQueue.main.async {
-                self.view?.displayTransactions(transactions: self.recentTransactionArr)
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.displayTransactions(transactions: self!.recentTransactionArr)
             }
         } catch {
             print("Error Fetching Recent Transactions")

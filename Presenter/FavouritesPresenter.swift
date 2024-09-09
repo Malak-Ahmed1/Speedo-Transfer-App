@@ -38,8 +38,8 @@ extension FavouritesPresenter: FavouritesPresenterProtocol {
     func getFavourites() {
         do {
             self.favArr = try context.fetch(FavouriteRecipient.fetchRequest())
-            DispatchQueue.main.async {
-                self.view?.displayFavourites()
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.displayFavourites()
             }
         } catch {
         

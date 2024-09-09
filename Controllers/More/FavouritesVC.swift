@@ -30,8 +30,8 @@ class FavouritesVC: UIViewController, FavouritesView, FavouritesEditView {
     }
      
     func displayFavourites() {
-        DispatchQueue.main.async {
-            self.favouriteListTable.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.favouriteListTable.reloadData()
         }
     }
     

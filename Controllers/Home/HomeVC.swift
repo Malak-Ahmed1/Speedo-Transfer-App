@@ -34,8 +34,8 @@ class HomeVC: UIViewController, HomeView {
     }
     func displayTransactions(transactions: [Transaction]) {
         // Reload the table view when transactions are fetched
-        DispatchQueue.main.async {
-            self.recentTransactionsTableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.recentTransactionsTableView.reloadData()
         }
     }
     @IBAction func viewBtnClicked(_ sender: Any) {
@@ -79,7 +79,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             let transactionInfoVC = storyboard.instantiateViewController(withIdentifier: "TransactionInfoVC") as! TransactionInfoVC
             transactionInfoVC.transaction = selectedTransaction
             navigationController?.pushViewController(transactionInfoVC, animated: true)
-            navigationItem.backButtonTitle = "Back"
+            navigationItem.backButtonTitle = "Successful Transaction"
         }
     }
 }

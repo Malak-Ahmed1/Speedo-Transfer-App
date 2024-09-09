@@ -39,8 +39,8 @@ extension NotificationPresenter: NotificatoinProtocol {
     func getNotifications() {
         do {
             self.notificationArr = try context.fetch(NotificationEntity.fetchRequest())
-            DispatchQueue.main.async {
-                self.view?.displayNotifications()
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.displayNotifications()
             }
         } catch {
             print("Error fetching notifications: \(error)")

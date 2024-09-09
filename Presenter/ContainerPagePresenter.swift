@@ -30,11 +30,12 @@ class ContainerPagePresenter {
     private func backToHome() {
         view?.setInitialViewController(viewControllers.first!)
         view?.updatePageControl(to: 0)
+        
     }
 }
 
 extension ContainerPagePresenter: ContainerPageProtocol {
-   
+    
     
     
     func initializeView() {
@@ -53,20 +54,41 @@ extension ContainerPagePresenter: ContainerPageProtocol {
             return
         }
         let nextVC = viewControllers[currentIndex + 1]
+        
+        if let secondStepVC = nextVC as? SecondStepVC {
+            if let firstStepVC = currentStep as? FirstStepVC {
+                secondStepVC.setupTransactionInfo(amount: firstStepVC.amountTextField.text,
+                                                  recipientName: firstStepVC.recipientNameTextField.text,
+                                                  recipientAccount: firstStepVC.recipientAccountTextField.text)
+            }
+        }
+        
+        if let thirdStepVC = nextVC as? ThirdStepVC {
+            if let secondStepVC = currentStep as? SecondStepVC {
+                thirdStepVC.setupTransactionInfo(amount: secondStepVC.firstAmountLabel.text,
+                                                 recipientName: secondStepVC.recipientNameLabel.text,
+                                                 recipientAccount: secondStepVC.recipientAccountLabel.text)
+            }
+        }
+        
         view?.setInitialViewController(nextVC)
         view?.updatePageControl(to: currentIndex + 1)
     }
+    
+    
     
     func goToPreviousStep(currentStep: UIViewController) {
         guard let currentIndex = viewControllers.firstIndex(of: currentStep), currentIndex - 1 >= 0 else {
             return
         }
-        if currentIndex == 2 {
+        if currentIndex == 2 || currentIndex == 0 {
             
             backToHome()
         }
-        let previousVC = viewControllers[currentIndex - 1]
-        view?.setInitialViewController(previousVC)
-        view?.updatePageControl(to: currentIndex - 1)
+        else {
+            let previousVC = viewControllers[currentIndex - 1]
+            view?.setInitialViewController(previousVC)
+            view?.updatePageControl(to: currentIndex - 1)
+        }
     }
 }

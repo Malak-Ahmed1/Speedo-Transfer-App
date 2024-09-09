@@ -16,6 +16,7 @@
 		7C0BE2F72C8F37040032626C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0BE2F62C8F37040032626C /* Main.storyboard */; };
 		7C2C08482C8F4312004650B9 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C2C08452C8F4312004650B9 /* Main2.storyboard */; };
 		7C2C08492C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C2C08462C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld */; };
+		7C2C084B2C8F6871004650B9 /* String+Trimmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2C084A2C8F6871004650B9 /* String+Trimmed.swift */; };
 		7C3AC3D72C8B11D7004C4D2D /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */; };
 		7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */; };
 		7C3AC3DA2C8B11FB004C4D2D /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */; };
@@ -93,6 +94,7 @@
 		7CBBC9742C8054C8005B90D5 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9732C8054C8005B90D5 /* OnboardingVC.swift */; };
 		7CBBC9772C806A62005B90D5 /* Gradient View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9762C806A62005B90D5 /* Gradient View.swift */; };
 		7CBBC9792C8098FC005B90D5 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBBC9782C8098FC005B90D5 /* CustomPageControl.swift */; };
+		7CD0945B2C8FB9C400CD341C /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD0945A2C8FB9C400CD341C /* NotificationCell.xib */; };
 		7CDB0D652C8B7CD7004117C1 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB0D642C8B7CD7004117C1 /* EditVC.swift */; };
 		7CDC4C3A2C88D2C0006E77F8 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC4C392C88D2C0006E77F8 /* UIVC+Alert.swift */; };
 		7CE328E32C839922000AB319 /* ContainerPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE328E22C839922000AB319 /* ContainerPageVC.swift */; };
@@ -125,6 +127,7 @@
 		7C0BE2F62C8F37040032626C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7C2C08452C8F4312004650B9 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 		7C2C08472C8F4312004650B9 /* SpeedoTransferData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpeedoTransferData.xcdatamodel; sourceTree = "<group>"; };
+		7C2C084A2C8F6871004650B9 /* String+Trimmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimmed.swift"; sourceTree = "<group>"; };
 		7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
 		7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCell.xib; sourceTree = "<group>"; };
 		7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 		7CBBC9732C8054C8005B90D5 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		7CBBC9762C806A62005B90D5 /* Gradient View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient View.swift"; sourceTree = "<group>"; };
 		7CBBC9782C8098FC005B90D5 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
+		7CD0945A2C8FB9C400CD341C /* NotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NotificationCell.xib; path = Presenter/NotificationCell.xib; sourceTree = SOURCE_ROOT; };
 		7CDB0D642C8B7CD7004117C1 /* EditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		7CDC4C392C88D2C0006E77F8 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
 		7CE328E22C839922000AB319 /* ContainerPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPageVC.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 		7CA473822C8329A400D0EDE3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7CD0945A2C8FB9C400CD341C /* NotificationCell.xib */,
 				7CA473842C8329D300D0EDE3 /* HomeVC.swift */,
 				7C6870C52C8CD90D00C54A12 /* NotificationsVC.swift */,
 				7C6870C72C8CD99000C54A12 /* NotificationCell.swift */,
@@ -338,6 +343,7 @@
 				7CAC476F2C826AC900439771 /* CustomPinkColor.swift */,
 				7CA473802C8310EF00D0EDE3 /* CustomLabel.swift */,
 				7CDC4C392C88D2C0006E77F8 /* UIVC+Alert.swift */,
+				7C2C084A2C8F6871004650B9 /* String+Trimmed.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -635,6 +641,7 @@
 				7CA1400E2C82111E0018232D /* InterDisplay-Black.ttf in Resources */,
 				7C9E3A242C8749C500F304D3 /* FavouriteListCell.xib in Resources */,
 				7CA78DDF2C8C71A200316F3D /* TransactionsListCell.xib in Resources */,
+				7CD0945B2C8FB9C400CD341C /* NotificationCell.xib in Resources */,
 				7CBBC96D2C805382005B90D5 /* Inter-Regular.ttf in Resources */,
 				7CA140082C82111E0018232D /* Inter-Medium.ttf in Resources */,
 				7CA1400A2C82111E0018232D /* Inter-MediumItalic.ttf in Resources */,
@@ -753,6 +760,7 @@
 				7CB4E1332C8E3A4800C5AB04 /* EditFavouritePresenter.swift in Sources */,
 				7CA140112C8225750018232D /* NoInternetVC.swift in Sources */,
 				7CA473872C832A9F00D0EDE3 /* CustomTapBar.swift in Sources */,
+				7C2C084B2C8F6871004650B9 /* String+Trimmed.swift in Sources */,
 				7C3CFAB32C81C810003739CB /* OnboardingSlide.swift in Sources */,
 				7CB4E12D2C8DE3BD00C5AB04 /* HomePresenter.swift in Sources */,
 				7CB4E13E2C8E7F7100C5AB04 /* FirstStepPresenter.swift in Sources */,

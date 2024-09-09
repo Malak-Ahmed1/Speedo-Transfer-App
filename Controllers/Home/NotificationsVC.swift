@@ -35,8 +35,8 @@ class NotificationsVC: UIViewController, NotificationView {
     }
     
     func displayNotifications() {
-            DispatchQueue.main.async {
-                self.notificationsTable.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.notificationsTable.reloadData()
             }
     }
     

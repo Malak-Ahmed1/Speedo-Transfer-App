@@ -26,8 +26,8 @@ class TransactionsVC: UIViewController, TransactionsView {
         transactionsTableView.register(UINib(nibName: "TransactionsListCell", bundle: nil), forCellReuseIdentifier: "TransactionsListCell")
     }
     func reloadTransactions() {
-        DispatchQueue.main.async {
-            self.transactionsTableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.transactionsTableView.reloadData()
         }
     }
     

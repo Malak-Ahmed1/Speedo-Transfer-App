@@ -32,8 +32,8 @@ extension TransactionsPresenter: TransactionsPresenterProtocol {
         do {
             // Fetch all transactions
             self.transactionArr = try transactionService.fetchAllTransactions()
-            DispatchQueue.main.async {
-                self.view?.reloadTransactions()
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.reloadTransactions()
             }
         } catch {
             print("Error Fetching Transactions")

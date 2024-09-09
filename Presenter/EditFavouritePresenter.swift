@@ -9,42 +9,60 @@ import Foundation
 import UIKit
 
 protocol EditFavouriteProtocol: AnyObject {
-    func saveRecipient(name: String?, account: String?)
+    func saveRecipient(recipientName: String?, recipientAccount: String?)
     func viewDidLoad()
 }
 
 class EditFavouritePresenter {
-
+    
     private weak var view: EditView?
     private var recipient: FavouriteRecipient?
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     init(view: EditView, recipient: FavouriteRecipient?) {
         self.view = view
         self.recipient = recipient
     }
+    func isValidData(recipientName: String?, recipientAccount: String?) -> Bool {
+        
+        guard recipientName?.trimmed != "" else {
+            self.view?.showMessage(title: "Sorry", message: "Please enter recipient name!")
+            return false
+        }
+        
+        guard recipientAccount?.trimmed != "" else {
+            self.view?.showMessage(title: "Sorry", message: "Please enter recipient Account!")
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension EditFavouritePresenter: EditFavouriteProtocol {
-
+    
     func viewDidLoad() {
         if let recipient = recipient {
             view?.displayRecipientDetails(name: recipient.userName ?? "", account: recipient.accountNumber ?? "")
         }
     }
-
-    func saveRecipient(name: String?, account: String?) {
+    
+    func saveRecipient(recipientName: String?, recipientAccount: String?) {
         guard let recipient = recipient else { return }
-        
-        recipient.userName = name
-        recipient.accountNumber = account
-        
+        if isValidData(recipientName: recipientName, recipientAccount: recipientAccount)
+        {
+            recipient.userName = recipientName
+            recipient.accountNumber = recipientAccount
+        } else {
+            
+            return
+        }
         do {
             try context.save()
             // Notify the view controller to refresh data
-            view?.showError(message: "Recipient updated successfully")
+            print("Recipient updated successfully")
         } catch {
-            view?.showError(message: "Failed to save edited recipient: \(error)")
+            print("Failed to save edited recipient: \(error)")
         }
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol EditView: AnyObject {
     func displayRecipientDetails(name: String, account: String)
-    func showError(message: String)
+    func showMessage(title: String, message: String)
 }
 
 class EditVC: UIViewController {
@@ -28,22 +28,17 @@ class EditVC: UIViewController {
     }
     
     @IBAction func saveBtnClicked(_ sender: Any) {
-        guard let name = recipientNameTextField.text, !name.isEmpty,
-              let account = recipientAccountTextField.text, !account.isEmpty else {
-            showError(message: "Please fill in all fields.")
-            return
-        }
+        presenter.saveRecipient(recipientName: recipientNameTextField.text, recipientAccount: recipientAccountTextField.text)
         
-        presenter.saveRecipient(name: name, account: account)
-        
-        // Ensure the updated recipient is passed to onSave
         if let updatedRecipient = recipient {
             onSave?(updatedRecipient)
-            
         }
         
-        dismiss(animated: true)
+        self.showAlert(title: "Success", message: "Recipient details saved successfully.", okHandler: {
+            self.dismiss(animated: true)
+        }, cancelHandler: nil)
     }
+
 
 }
 
@@ -53,7 +48,8 @@ extension EditVC: EditView {
         recipientAccountTextField.text = account
     }
     
-    func showError(message: String) {
-      print(message)
+    func showMessage(title: String, message: String) {
+        self.showAlert(title: title, message: message, okHandler: nil, cancelHandler: nil)
     }
+    
 }

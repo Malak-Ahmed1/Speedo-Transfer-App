@@ -15,24 +15,48 @@ protocol ThirdStepView: AnyObject {
 
 class ThirdStepVC: UIViewController {
     
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var userAccountLabel: UILabel!
     @IBOutlet weak var recipientNameLabel: UILabel!
     @IBOutlet weak var recipientAccountLabel: UILabel!
     
+    @IBOutlet weak var amountLabel: UILabel!
     weak var delegate: StepNavigationDelegate?
     private var presenter: ThirdStepProtocol!
     
+    private var amount: String?
+    private var recipientName: String?
+    private var recipientAccount: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        presenter = ThirdStepPresenter(view: self, context: context)
+        updateUI()
+    }
+    
+    private func updateUI() {
+        amountLabel?.text = amount
+        recipientNameLabel?.text = recipientName
+        recipientAccountLabel?.text = recipientAccount
+    }
+    
+    func setupTransactionInfo(amount: String?, recipientName: String?, recipientAccount: String?) {
+        self.amount = amount
+        self.recipientName = recipientName
+        self.recipientAccount = recipientAccount
+        updateUI()
     }
     
     @IBAction func backBtnClicked(_ sender: Any) {
         delegate?.goToPreviousStep(currentStep: self)
+        tabBarController?.selectedIndex = 0
+        
     }
     
     @IBAction func toHomeBtnClicked(_ sender: Any) {
         delegate?.goToPreviousStep(currentStep: self)
+        tabBarController?.selectedIndex = 0
     }
     
     @IBAction func addFavouriteBtnClicked(_ sender: Any) {
@@ -42,7 +66,7 @@ class ThirdStepVC: UIViewController {
         })
     }
     
-   
+    
 }
 
 extension ThirdStepVC: ThirdStepView {
