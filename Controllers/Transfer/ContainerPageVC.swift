@@ -13,7 +13,7 @@ protocol ContainerPageView: AnyObject {
 
 import UIKit
 
-class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavigationDelegate {
+class ContainerPageVC: UIViewController, UIPageViewControllerDelegate {
 
     var pageViewController: UIPageViewController!
     var stepsPageControl: CustomStepControl!
@@ -61,36 +61,17 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavig
         ])
     }
     
-    func goToNextStep(currentStep: UIViewController) {
-        presenter.goToNextStep(currentStep: currentStep)
-    }
-    
-    func goToPreviousStep(currentStep: UIViewController) {
-        if let currentIndex = presenter.viewControllers.firstIndex(of: currentStep), currentIndex == 2 {
-            backToHome()
-        } else {
-            presenter.goToPreviousStep(currentStep: currentStep)
-        }
-    }
-
+   
     func backToHome() {
         presenter.backToHome()
     }
     
     
     
-    // MARK: - UIPageViewControllerDelegate
     
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted: Bool) {
-        if transitionCompleted, let visibleViewController = pageViewController.viewControllers?.first {
-            if let index = presenter.viewControllers.firstIndex(of: visibleViewController) {
-                stepsPageControl.updateStep(to: index)
-            }
-        }
-    }
 }
 
-extension ContainerPageVC: ContainerPageView {
+extension ContainerPageVC: ContainerPageView, StepNavigationDelegate {
     // MARK: - ContainerPageView Protocol Methods
 
     func updatePageControl(to step: Int) {
@@ -105,6 +86,28 @@ extension ContainerPageVC: ContainerPageView {
         // Handle error display if needed
         print(message)
     }
+    
+    // MARK: - UIPageViewControllerDelegate
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted: Bool) {
+        if transitionCompleted, let visibleViewController = pageViewController.viewControllers?.first {
+            if let index = presenter.viewControllers.firstIndex(of: visibleViewController) {
+                stepsPageControl.updateStep(to: index)
+            }
+        }
+    }
+    func goToNextStep(currentStep: UIViewController) {
+        presenter.goToNextStep(currentStep: currentStep)
+    }
+    
+    func goToPreviousStep(currentStep: UIViewController) {
+        if let currentIndex = presenter.viewControllers.firstIndex(of: currentStep), currentIndex == 2 {
+            backToHome()
+        } else {
+            presenter.goToPreviousStep(currentStep: currentStep)
+        }
+    }
+
     
 }
 

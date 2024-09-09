@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class ContainerPagePresenter {
     private weak var view: ContainerPageView?
-    private var viewControllers: [UIViewController]
+     var viewControllers: [UIViewController]
     
     init(view: ContainerPageView, viewControllers: [UIViewController]) {
         self.view = view
@@ -37,6 +38,10 @@ class ContainerPagePresenter {
     func goToPreviousStep(currentStep: UIViewController) {
         guard let currentIndex = viewControllers.firstIndex(of: currentStep), currentIndex - 1 >= 0 else {
             return
+        }
+        if currentIndex == 2 {
+            
+            backToHome()
         }
         let previousVC = viewControllers[currentIndex - 1]
         view?.setInitialViewController(previousVC)
