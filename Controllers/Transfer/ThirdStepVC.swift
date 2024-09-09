@@ -7,25 +7,26 @@
 
 import UIKit
 
-class ThirdStepVC: UIViewController {
+protocol ThirdStepView: AnyObject {
+    func displayError(_ message: String)
+    func showSuccessMessage(_ message: String)
+}
 
-    weak var delegate: StepNavigationDelegate?
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var favArr: [FavouriteRecipient] = []
+
+class ThirdStepVC: UIViewController {
     
     @IBOutlet weak var recipientNameLabel: UILabel!
-    
     @IBOutlet weak var recipientAccountLabel: UILabel!
+    
+    weak var delegate: StepNavigationDelegate?
+    private var presenter: ThirdStepPresenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        presenter = ThirdStepPresenter(view: self, context: context)
     }
     
-
-   
     @IBAction func backBtnClicked(_ sender: Any) {
         delegate?.goToPreviousStep(currentStep: self)
     }
@@ -34,26 +35,31 @@ class ThirdStepVC: UIViewController {
         delegate?.goToPreviousStep(currentStep: self)
     }
     
-    
-    @IBAction func addFavouriteBtnclicked(_ sender: Any) {
-        
-        self.showAlert(title: "Sure?", message: "Are you sure you want add this user to favourites?", okHandler: {
-            let newFavRecipient = FavouriteRecipient(context: self.context)
-            newFavRecipient.userName = self.recipientNameLabel.text
-            newFavRecipient.accountNumber = self.recipientAccountLabel.text
-            
-            do {
-                
-                try self.context.save()
-            } catch {
-                print("Error")
-            }
-
+    @IBAction func addFavouriteBtnClicked(_ sender: Any) {
+        self.showAlert(title: "Sure?", message: "Are you sure you want to add this user to favorites?", okHandler: {
+            self.presenter.addFavoriteRecipient(userName: self.recipientNameLabel.text, accountNumber: self.recipientAccountLabel.text)
         }, cancelHandler: {
-            
-            
         })
-        
-        
+    }
+    
+   
+}
+
+extension ThirdStepVC: ThirdStepView {
+    
+    // MARK: - ThirdStepView Protocol Methods
+    
+    func displayError(_ message: String) {
+        // Handle error display, e.g., show an alert
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
+    func showSuccessMessage(_ message: String) {
+        // Handle success, e.g., show a confirmation alert or navigate
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }

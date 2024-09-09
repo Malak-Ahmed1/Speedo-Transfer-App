@@ -5,49 +5,39 @@ protocol StepNavigationDelegate: AnyObject {
     func goToPreviousStep(currentStep: UIViewController)
 }
 
+protocol ContainerPageView: AnyObject {
+    func updatePageControl(to step: Int)
+    func setInitialViewController(_ viewController: UIViewController)
+    func showError(_ message: String)
+}
+
+import UIKit
+
 class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavigationDelegate {
 
     var pageViewController: UIPageViewController!
-    var arrContainer = [UIViewController]()
     var stepsPageControl: CustomStepControl!
+    private var presenter: ContainerPagePresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let firstStepVC = self.storyboard?.instantiateViewController(withIdentifier: "FirstStepVC") as! FirstStepVC
-        let secondStepVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondStepVC") as! SecondStepVC
-        let thirdStepVC = self.storyboard?.instantiateViewController(withIdentifier: "ThirdStepVC") as! ThirdStepVC
+        let firstStepVC = storyboard?.instantiateViewController(withIdentifier: "FirstStepVC") as! FirstStepVC
+        let secondStepVC = storyboard?.instantiateViewController(withIdentifier: "SecondStepVC") as! SecondStepVC
+        let thirdStepVC = storyboard?.instantiateViewController(withIdentifier: "ThirdStepVC") as! ThirdStepVC
+        
+        let viewControllers = [firstStepVC, secondStepVC, thirdStepVC]
         
         firstStepVC.delegate = self
         secondStepVC.delegate = self
         thirdStepVC.delegate = self
         
-        arrContainer = [firstStepVC, secondStepVC, thirdStepVC]
+        presenter = ContainerPagePresenter(view: self, viewControllers: viewControllers)
         
         setupPageViewController()
         setupPageControl()
+        presenter.initializeView()
     }
-
-    private func setUpInitial() {
-        guard let firstVC = arrContainer.first else {
-            print("Error: arrContainer is empty or not initialized")
-            return
-        }
-        
-        guard pageViewController != nil else {
-            print("Error: pageViewController is not initialized")
-            return
-        }
-        
-        guard stepsPageControl != nil else {
-            print("Error: stepsPageControl is not initialized")
-            return
-        }
-        
-        pageViewController.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
-        stepsPageControl.configure(steps: arrContainer.count, currentStep: 0)
-    }
-
 
     private func setupPageViewController() {
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -56,61 +46,66 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavig
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
-        
-        setupPageControl()
-        
-        setUpInitial()
     }
 
-
     private func setupPageControl() {
-        // Initialize and configure CustomStepControl
         stepsPageControl = CustomStepControl()
         stepsPageControl.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(stepsPageControl)
         
         NSLayoutConstraint.activate([
-               stepsPageControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
-               stepsPageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor), // Center horizontally
-               stepsPageControl.heightAnchor.constraint(equalToConstant: 50)
-           ])
+            stepsPageControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
+            stepsPageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stepsPageControl.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
-
-
+    
     func goToNextStep(currentStep: UIViewController) {
-        guard let currentIndex = arrContainer.firstIndex(of: currentStep) else { return }
-        let nextIndex = currentIndex + 1
-        guard nextIndex < arrContainer.count else { return }
-       
-        let nextVC = arrContainer[nextIndex]
-        pageViewController.setViewControllers([nextVC], direction: .forward, animated: true, completion: nil)
-        
-        stepsPageControl.updateStep(to: nextIndex)
+        presenter.goToNextStep(currentStep: currentStep)
     }
     
     func goToPreviousStep(currentStep: UIViewController) {
-        guard let currentIndex = arrContainer.firstIndex(of: currentStep) else { return }
-        let previousIndex = currentIndex - 1
-        
-        if currentIndex == 2 {  // if back to home
-            tabBarController?.selectedIndex = 0
-            setUpInitial()
-            stepsPageControl.updateStep(to: 0)
-            return
+        if let currentIndex = presenter.viewControllers.firstIndex(of: currentStep), currentIndex == 2 {
+            backToHome()
+        } else {
+            presenter.goToPreviousStep(currentStep: currentStep)
         }
-        
-        let previousVC = arrContainer[previousIndex]
-        pageViewController.setViewControllers([previousVC], direction: .reverse, animated: true, completion: nil)
-        stepsPageControl.updateStep(to: previousIndex)
+    }
+
+    func backToHome() {
+        presenter.backToHome()
     }
     
-    //  update page control
+    
+    
+    // MARK: - UIPageViewControllerDelegate
+    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted: Bool) {
         if transitionCompleted, let visibleViewController = pageViewController.viewControllers?.first {
-            if let index = arrContainer.firstIndex(of: visibleViewController) {
+            if let index = presenter.viewControllers.firstIndex(of: visibleViewController) {
                 stepsPageControl.updateStep(to: index)
             }
         }
     }
 }
+
+extension ContainerPageVC: ContainerPageView {
+    // MARK: - ContainerPageView Protocol Methods
+
+    func updatePageControl(to step: Int) {
+        stepsPageControl.updateStep(to: step)
+    }
+    
+    func setInitialViewController(_ viewController: UIViewController) {
+        pageViewController.setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
+    }
+    
+    func showError(_ message: String) {
+        // Handle error display if needed
+        print(message)
+    }
+    
+}
+
+

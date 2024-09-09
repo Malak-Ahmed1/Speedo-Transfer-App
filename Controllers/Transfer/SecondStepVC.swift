@@ -7,77 +7,49 @@
 
 import UIKit
 
+protocol SecondStepView: AnyObject {
+    func displayError(_ message: String)
+    func showSuccessMessage(_ message: String)
+}
+
 
 class SecondStepVC: UIViewController {
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    weak var delegate: StepNavigationDelegate?
 
     @IBOutlet weak var firstAmountLabel: UILabel!
     @IBOutlet weak var secondAmountLabel: UILabel!
     @IBOutlet weak var recipientNameLabel: UILabel!
+    weak var delegate: StepNavigationDelegate?
+    private var presenter: SecondStepPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    @IBAction func backBtnClicked(_ sender: Any) {
-        delegate?.goToPreviousStep(currentStep: self)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        presenter = SecondStepPresenter(view: self, context: context)
     }
 
     @IBAction func confirmBtnClicked(_ sender: Any) {
-        delegate?.goToNextStep(currentStep: self)
-        
-        // Create and save the transaction
-        let newTransaction = Transaction(context: self.context)
-        newTransaction.recipientName = self.recipientNameLabel.text
-        newTransaction.visaInfo = "Visa . Master Card . 1234"
-        newTransaction.status = "Successful"
-        
-        if let amountText = firstAmountLabel.text, let amount = Double(amountText) {
-            newTransaction.amount = amount
-        } else {
-            print("Invalid amount or conversion failed.")
-        }
-
-        // Get current date and format it
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
-        let formattedDate = dateFormatter.string(from: Date())
-        newTransaction.date = formattedDate
-        
-        do {
-            try self.context.save()
-        } catch {
-            print("Error saving transaction: \(error)")
-        }
-        
-        // Add notification for the new transaction
-        addNotification(for: newTransaction)
-        
-        // Schedule local notification
-        LocalNotificationManager.shared.scheduleNotification(title: "Notification", body: "Successful Transfer", triggerDate: Date().addingTimeInterval(3))
+        presenter.confirmTransaction(recipientName: recipientNameLabel.text, firstAmount: firstAmountLabel.text)
     }
 
     @IBAction func previousBtnClicked(_ sender: Any) {
         delegate?.goToPreviousStep(currentStep: self)
     }
 
-    func addNotification(for transaction: Transaction) {
-        
-        let newNotification = NotificationEntity(context: self.context)
-        // Check for transaction type
-        if transaction.status == "Failed" {
-            newNotification.message = "You received \(transaction.amount) from \(transaction.recipientName ?? "someone")."
-        } else {
-            newNotification.message = "You sent \(transaction.amount) to \(transaction.recipientName ?? "someone")."
-        }
-        newNotification.timestamp = Date()
-        
-        do {
-            try context.save()
-        } catch {
-            print("Error saving notification: \(error)")
-        }
+    
+}
+extension SecondStepVC: SecondStepView {
+    
+    // MARK: - SecondStepView Protocol Methods
+
+    func displayError(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+
+    func showSuccessMessage(_ message: String) {
+        delegate?.goToNextStep(currentStep: self)
     }
 }
+
+
