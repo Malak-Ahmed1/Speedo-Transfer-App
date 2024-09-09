@@ -5,47 +5,53 @@ protocol HomeView: AnyObject {
 }
 
 class HomeVC: UIViewController, HomeView {
-
+    
     @IBOutlet weak var recentTransactionsTableView: UITableView!
     
     private var presenter: HomePresenter!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set up table view
-        recentTransactionsTableView.delegate = self
-        recentTransactionsTableView.dataSource = self
-        recentTransactionsTableView.register(UINib(nibName: "RecentTransactionCell", bundle: nil), forCellReuseIdentifier: "RecentTransactionCell")
+        setUpTable()
         
-        // Initialize the presenter
         presenter = HomePresenter(view: self)
         
-        // Fetch recent transactions
         presenter.fetchRecentTransactions()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.fetchRecentTransactions()
         self.recentTransactionsTableView.reloadData()
-        }
+    }
     
+    func setUpTable() {
+        
+        recentTransactionsTableView.delegate = self
+        recentTransactionsTableView.dataSource = self
+        recentTransactionsTableView.register(UINib(nibName: "RecentTransactionCell", bundle: nil), forCellReuseIdentifier: "RecentTransactionCell")
+        
+    }
     func displayTransactions(transactions: [Transaction]) {
         // Reload the table view when transactions are fetched
         DispatchQueue.main.async {
             self.recentTransactionsTableView.reloadData()
         }
     }
+    @IBAction func viewBtnClicked(_ sender: Any) {
+        
+        tabBarController?.selectedIndex = 2
+    }
     @IBAction func notificationBtnClicked(_ sender: Any) {
-            
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let notificationsVC = sb.instantiateViewController(withIdentifier: "NotificationsVC") as! NotificationsVC
-            notificationsVC.modalPresentationStyle = .fullScreen
-            navigationController?.pushViewController(notificationsVC, animated: true)
-            navigationItem.title = ""
-            notificationsVC.title = "Notifications"
-            
-        }
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let notificationsVC = sb.instantiateViewController(withIdentifier: "NotificationsVC") as! NotificationsVC
+        notificationsVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(notificationsVC, animated: true)
+        navigationItem.title = ""
+        notificationsVC.title = "Notifications"
+        
+    }
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {

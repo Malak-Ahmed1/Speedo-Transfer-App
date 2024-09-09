@@ -5,7 +5,7 @@ protocol FirstStepViewProtocol: AnyObject {
 }
 
 
-class FirstStepVC: UIViewController, FirstStepViewProtocol {
+class FirstStepVC: UIViewController {
 
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var recipientAccountTextField: CustomTextField!
@@ -31,6 +31,10 @@ class FirstStepVC: UIViewController, FirstStepViewProtocol {
         presenter?.continueButtonTapped()
     }
 
+    
+}
+
+extension FirstStepVC: FirstStepViewProtocol {
     func showFavourites() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let favouriteListVC = sb.instantiateViewController(withIdentifier: "FavouriteListVC") as! FavouriteListVC

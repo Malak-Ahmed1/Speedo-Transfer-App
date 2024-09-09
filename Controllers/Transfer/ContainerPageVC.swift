@@ -14,20 +14,16 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavig
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Initialize view controllers
         let firstStepVC = self.storyboard?.instantiateViewController(withIdentifier: "FirstStepVC") as! FirstStepVC
         let secondStepVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondStepVC") as! SecondStepVC
         let thirdStepVC = self.storyboard?.instantiateViewController(withIdentifier: "ThirdStepVC") as! ThirdStepVC
         
-        // Set delegate for each step view controller
         firstStepVC.delegate = self
         secondStepVC.delegate = self
         thirdStepVC.delegate = self
         
-        // Populate the array with view controllers
         arrContainer = [firstStepVC, secondStepVC, thirdStepVC]
         
-        // Setup page view controller and page control
         setupPageViewController()
         setupPageControl()
     }
@@ -54,19 +50,15 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavig
 
 
     private func setupPageViewController() {
-        // Initialize UIPageViewController
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageViewController.delegate = self
         
-        // Add UIPageViewController as a child view controller
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
-        // Initialize and configure CustomStepControl
         setupPageControl()
         
-        // Call setUpInitial after stepsPageControl is initialized
         setUpInitial()
     }
 
@@ -76,7 +68,6 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavig
         stepsPageControl = CustomStepControl()
         stepsPageControl.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add CustomStepControl to the view hierarchy
         view.addSubview(stepsPageControl)
         
         NSLayoutConstraint.activate([
@@ -102,7 +93,7 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavig
         guard let currentIndex = arrContainer.firstIndex(of: currentStep) else { return }
         let previousIndex = currentIndex - 1
         
-        if previousIndex < 0 {
+        if currentIndex == 2 {  // if back to home
             tabBarController?.selectedIndex = 0
             setUpInitial()
             stepsPageControl.updateStep(to: 0)
@@ -114,7 +105,7 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate, StepNavig
         stepsPageControl.updateStep(to: previousIndex)
     }
     
-    // Implement UIPageViewControllerDelegate method to update page control
+    //  update page control
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted: Bool) {
         if transitionCompleted, let visibleViewController = pageViewController.viewControllers?.first {
             if let index = arrContainer.firstIndex(of: visibleViewController) {

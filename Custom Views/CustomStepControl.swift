@@ -9,7 +9,7 @@ class CustomStepControl: UIPageControl {
     private let titlesArray = ["Amount", "Confirmation", "Payment"]
     private let imagesArray = ["step1", "step2", "step3"]
 
-    private let titleFont = UIFont.systemFont(ofSize: 14, weight: .bold)
+    private let titleFont = UIFont.systemFont(ofSize: 14, weight: .regular)
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
