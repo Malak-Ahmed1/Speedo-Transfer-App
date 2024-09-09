@@ -6,7 +6,7 @@ protocol FirstStepPresenterProtocol {
     func favouriteButtonTapped()
 }
 
-class FirstStepPresenter: FirstStepPresenterProtocol {
+class FirstStepPresenter {
     private weak var view: FirstStepViewProtocol?
     private var stepNavigationDelegate: StepNavigationDelegate?
 
@@ -15,6 +15,10 @@ class FirstStepPresenter: FirstStepPresenterProtocol {
         self.stepNavigationDelegate = stepNavigationDelegate
     }
 
+    
+}
+extension FirstStepPresenter: FirstStepPresenterProtocol {
+    
     func continueButtonTapped() {
         if let viewController = view as? UIViewController {
             stepNavigationDelegate?.goToNextStep(currentStep: viewController)

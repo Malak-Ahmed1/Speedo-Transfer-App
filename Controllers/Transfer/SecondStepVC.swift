@@ -19,7 +19,7 @@ class SecondStepVC: UIViewController {
     @IBOutlet weak var secondAmountLabel: UILabel!
     @IBOutlet weak var recipientNameLabel: UILabel!
     weak var delegate: StepNavigationDelegate?
-    private var presenter: SecondStepPresenter!
+    private var presenter: SecondStepProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()

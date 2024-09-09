@@ -8,14 +8,34 @@
 import Foundation
 import UIKit
 
+protocol ContainerPageProtocol: AnyObject {
+    
+    func initializeView()
+    func getVC() -> [UIViewController]
+    func goToNextStep(currentStep: UIViewController)
+    func goToPreviousStep(currentStep: UIViewController)
+    
+}
 class ContainerPagePresenter {
     private weak var view: ContainerPageView?
-     var viewControllers: [UIViewController]
+    private var viewControllers: [UIViewController]
     
     init(view: ContainerPageView, viewControllers: [UIViewController]) {
         self.view = view
         self.viewControllers = viewControllers
     }
+    
+    
+    
+    private func backToHome() {
+        view?.setInitialViewController(viewControllers.first!)
+        view?.updatePageControl(to: 0)
+    }
+}
+
+extension ContainerPagePresenter: ContainerPageProtocol {
+   
+    
     
     func initializeView() {
         guard let firstVC = viewControllers.first else {
@@ -25,7 +45,9 @@ class ContainerPagePresenter {
         view?.setInitialViewController(firstVC)
         view?.updatePageControl(to: 0)
     }
-    
+    func getVC() -> [UIViewController] {
+        return viewControllers
+    }
     func goToNextStep(currentStep: UIViewController) {
         guard let currentIndex = viewControllers.firstIndex(of: currentStep), currentIndex + 1 < viewControllers.count else {
             return
@@ -46,10 +68,5 @@ class ContainerPagePresenter {
         let previousVC = viewControllers[currentIndex - 1]
         view?.setInitialViewController(previousVC)
         view?.updatePageControl(to: currentIndex - 1)
-    }
-    
-    func backToHome() {
-        view?.setInitialViewController(viewControllers.first!)
-        view?.updatePageControl(to: 0)
     }
 }

@@ -19,7 +19,7 @@ class ThirdStepVC: UIViewController {
     @IBOutlet weak var recipientAccountLabel: UILabel!
     
     weak var delegate: StepNavigationDelegate?
-    private var presenter: ThirdStepPresenter!
+    private var presenter: ThirdStepProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

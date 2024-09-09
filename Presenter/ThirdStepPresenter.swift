@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 import CoreData
 
+protocol ThirdStepProtocol: AnyObject {
+    
+    func addFavoriteRecipient(userName: String?, accountNumber: String?)
+    
+}
 
 class ThirdStepPresenter {
     private weak var view: ThirdStepView?
@@ -18,6 +23,14 @@ class ThirdStepPresenter {
         self.view = view
         self.context = context
     }
+    
+    
+}
+
+
+
+
+extension ThirdStepPresenter: ThirdStepProtocol {
     
     func addFavoriteRecipient(userName: String?, accountNumber: String?) {
         guard let userName = userName, !userName.isEmpty,

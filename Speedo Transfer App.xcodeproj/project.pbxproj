@@ -14,6 +14,8 @@
 		7C0BE2F02C8F2F860032626C /* ThirdStepPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BE2EF2C8F2F860032626C /* ThirdStepPresenter.swift */; };
 		7C0BE2F22C8F32990032626C /* ContainerPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BE2F12C8F32990032626C /* ContainerPagePresenter.swift */; };
 		7C0BE2F72C8F37040032626C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0BE2F62C8F37040032626C /* Main.storyboard */; };
+		7C2C08482C8F4312004650B9 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C2C08452C8F4312004650B9 /* Main2.storyboard */; };
+		7C2C08492C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C2C08462C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld */; };
 		7C3AC3D72C8B11D7004C4D2D /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */; };
 		7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */; };
 		7C3AC3DA2C8B11FB004C4D2D /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */; };
@@ -24,7 +26,6 @@
 		7C6870C42C8CC03200C54A12 /* TransactionInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6870C32C8CC03100C54A12 /* TransactionInfoVC.swift */; };
 		7C6870C62C8CD90D00C54A12 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6870C52C8CD90D00C54A12 /* NotificationsVC.swift */; };
 		7C6870C92C8CD99000C54A12 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6870C72C8CD99000C54A12 /* NotificationCell.swift */; };
-		7C6870CA2C8CD99000C54A12 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6870C82C8CD99000C54A12 /* NotificationCell.xib */; };
 		7C9A656B2C8A1B6A009DFE5C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A656A2C8A1B6A009DFE5C /* LocalNotificationManager.swift */; };
 		7C9A656E2C8A3212009DFE5C /* MoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A656C2C8A3212009DFE5C /* MoreTableCell.swift */; };
 		7C9A656F2C8A3212009DFE5C /* MoreTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9A656D2C8A3212009DFE5C /* MoreTableCell.xib */; };
@@ -37,7 +38,6 @@
 		7C9DEED72C89AA9B0084EF5B /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DEED22C89AA9B0084EF5B /* ChangePasswordVC.swift */; };
 		7C9DEED82C89AA9B0084EF5B /* settingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DEED32C89AA9B0084EF5B /* settingsVC.swift */; };
 		7C9DEEDA2C89AAAC0084EF5B /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DEED92C89AAAC0084EF5B /* AlertVC.swift */; };
-		7C9DEEDF2C89AADC0084EF5B /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9DEEDD2C89AADC0084EF5B /* Main2.storyboard */; };
 		7C9DEEE32C89E14E0084EF5B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DEEE12C89E14D0084EF5B /* SignUpVC.swift */; };
 		7C9DEEE42C89E14E0084EF5B /* SignUp2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9DEEE22C89E14D0084EF5B /* SignUp2VC.swift */; };
 		7C9E3A232C8749C500F304D3 /* FavouriteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E3A212C8749C500F304D3 /* FavouriteListCell.swift */; };
@@ -123,6 +123,8 @@
 		7C0BE2EF2C8F2F860032626C /* ThirdStepPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStepPresenter.swift; sourceTree = "<group>"; };
 		7C0BE2F12C8F32990032626C /* ContainerPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPagePresenter.swift; sourceTree = "<group>"; };
 		7C0BE2F62C8F37040032626C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7C2C08452C8F4312004650B9 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
+		7C2C08472C8F4312004650B9 /* SpeedoTransferData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpeedoTransferData.xcdatamodel; sourceTree = "<group>"; };
 		7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
 		7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCell.xib; sourceTree = "<group>"; };
 		7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
@@ -133,7 +135,6 @@
 		7C6870C32C8CC03100C54A12 /* TransactionInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionInfoVC.swift; sourceTree = "<group>"; };
 		7C6870C52C8CD90D00C54A12 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		7C6870C72C8CD99000C54A12 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
-		7C6870C82C8CD99000C54A12 /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		7C9A656A2C8A1B6A009DFE5C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		7C9A656C2C8A3212009DFE5C /* MoreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableCell.swift; sourceTree = "<group>"; };
 		7C9A656D2C8A3212009DFE5C /* MoreTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTableCell.xib; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		7C9DEED22C89AA9B0084EF5B /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordVC.swift; path = "../../../Speedo-Transfer-App/trialUITests/trial/ChangePasswordVC.swift"; sourceTree = "<group>"; };
 		7C9DEED32C89AA9B0084EF5B /* settingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingsVC.swift; path = "../../../Speedo-Transfer-App/trialUITests/trial/settingsVC.swift"; sourceTree = "<group>"; };
 		7C9DEED92C89AAAC0084EF5B /* AlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertVC.swift; path = "../../../Speedo-Transfer-App/trialUITests/trial/AlertVC.swift"; sourceTree = "<group>"; };
-		7C9DEEDE2C89AADC0084EF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../Speedo-Transfer-App/trialUITests/trial/Base.lproj/Main2.storyboard"; sourceTree = "<group>"; };
 		7C9DEEE12C89E14D0084EF5B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		7C9DEEE22C89E14D0084EF5B /* SignUp2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2VC.swift; sourceTree = "<group>"; };
 		7C9E3A212C8749C500F304D3 /* FavouriteListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListCell.swift; sourceTree = "<group>"; };
@@ -291,7 +291,6 @@
 				7CA473842C8329D300D0EDE3 /* HomeVC.swift */,
 				7C6870C52C8CD90D00C54A12 /* NotificationsVC.swift */,
 				7C6870C72C8CD99000C54A12 /* NotificationCell.swift */,
-				7C6870C82C8CD99000C54A12 /* NotificationCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -403,11 +402,12 @@
 			isa = PBXGroup;
 			children = (
 				7CBBC92D2C805032005B90D5 /* AppDelegate.swift */,
+				7C2C08452C8F4312004650B9 /* Main2.storyboard */,
 				7C0BE2F62C8F37040032626C /* Main.storyboard */,
-				7C9DEEDD2C89AADC0084EF5B /* Main2.storyboard */,
 				7CBBC9312C805032005B90D5 /* ViewController.swift */,
 				7CBBC9362C805038005B90D5 /* Assets.xcassets */,
 				7CBBC9382C805038005B90D5 /* LaunchScreen.storyboard */,
+				7C2C08462C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld */,
 				7CBBC93B2C805038005B90D5 /* Info.plist */,
 				7CA1366A2C8898D100D9F001 /* Speedo Transfer App.xcdatamodeld */,
 			);
@@ -628,7 +628,6 @@
 				7CA140072C82111E0018232D /* InterDisplay-Medium.ttf in Resources */,
 				7CBBC96E2C805382005B90D5 /* Inter-Bold.ttf in Resources */,
 				7CBBC93A2C805038005B90D5 /* LaunchScreen.storyboard in Resources */,
-				7C9DEEDF2C89AADC0084EF5B /* Main2.storyboard in Resources */,
 				7C0BE2F72C8F37040032626C /* Main.storyboard in Resources */,
 				7CA1400B2C82111E0018232D /* Inter-SemiBoldItalic.ttf in Resources */,
 				7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */,
@@ -636,11 +635,11 @@
 				7CA1400E2C82111E0018232D /* InterDisplay-Black.ttf in Resources */,
 				7C9E3A242C8749C500F304D3 /* FavouriteListCell.xib in Resources */,
 				7CA78DDF2C8C71A200316F3D /* TransactionsListCell.xib in Resources */,
-				7C6870CA2C8CD99000C54A12 /* NotificationCell.xib in Resources */,
 				7CBBC96D2C805382005B90D5 /* Inter-Regular.ttf in Resources */,
 				7CA140082C82111E0018232D /* Inter-Medium.ttf in Resources */,
 				7CA1400A2C82111E0018232D /* Inter-MediumItalic.ttf in Resources */,
 				7CBBC9372C805038005B90D5 /* Assets.xcassets in Resources */,
+				7C2C08482C8F4312004650B9 /* Main2.storyboard in Resources */,
 				7C9A656F2C8A3212009DFE5C /* MoreTableCell.xib in Resources */,
 				7C9DC6592C848B880095E8C5 /* RecentTransactionCell.xib in Resources */,
 				7CBBC96C2C805382005B90D5 /* Inter-Black.ttf in Resources */,
@@ -746,6 +745,7 @@
 				7C3AC3DC2C8B12EA004C4D2D /* ProfileVC.swift in Sources */,
 				7C9DEED82C89AA9B0084EF5B /* settingsVC.swift in Sources */,
 				7CA1366C2C8898D100D9F001 /* Speedo Transfer App.xcdatamodeld in Sources */,
+				7C2C08492C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld in Sources */,
 				7C3AC3D72C8B11D7004C4D2D /* FavouritesCell.swift in Sources */,
 				7CB4E1352C8E5AB200C5AB04 /* MorePresenter.swift in Sources */,
 				7CA473812C8310EF00D0EDE3 /* CustomLabel.swift in Sources */,
@@ -811,14 +811,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7C9DEEDD2C89AADC0084EF5B /* Main2.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C9DEEDE2C89AADC0084EF5B /* Base */,
-			);
-			name = Main2.storyboard;
-			sourceTree = "<group>";
-		};
 		7CBBC9382C805038005B90D5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1114,6 +1106,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		7C2C08462C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7C2C08472C8F4312004650B9 /* SpeedoTransferData.xcdatamodel */,
+			);
+			currentVersion = 7C2C08472C8F4312004650B9 /* SpeedoTransferData.xcdatamodel */;
+			path = "Speedo Transfer App.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		7CA1366A2C8898D100D9F001 /* Speedo Transfer App.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

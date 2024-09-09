@@ -17,7 +17,7 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate {
 
     var pageViewController: UIPageViewController!
     var stepsPageControl: CustomStepControl!
-    private var presenter: ContainerPagePresenter!
+    private var presenter: ContainerPageProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +61,6 @@ class ContainerPageVC: UIViewController, UIPageViewControllerDelegate {
         ])
     }
     
-   
-    func backToHome() {
-        presenter.backToHome()
-    }
-    
-    
-    
-    
 }
 
 extension ContainerPageVC: ContainerPageView, StepNavigationDelegate {
@@ -91,7 +83,7 @@ extension ContainerPageVC: ContainerPageView, StepNavigationDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted: Bool) {
         if transitionCompleted, let visibleViewController = pageViewController.viewControllers?.first {
-            if let index = presenter.viewControllers.firstIndex(of: visibleViewController) {
+            if let index = presenter.getVC().firstIndex(of: visibleViewController) {
                 stepsPageControl.updateStep(to: index)
             }
         }
@@ -101,11 +93,7 @@ extension ContainerPageVC: ContainerPageView, StepNavigationDelegate {
     }
     
     func goToPreviousStep(currentStep: UIViewController) {
-        if let currentIndex = presenter.viewControllers.firstIndex(of: currentStep), currentIndex == 2 {
-            backToHome()
-        } else {
-            presenter.goToPreviousStep(currentStep: currentStep)
-        }
+        presenter.goToPreviousStep(currentStep: currentStep)
     }
 
     

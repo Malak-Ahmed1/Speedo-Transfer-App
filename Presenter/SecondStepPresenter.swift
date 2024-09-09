@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 import CoreData
 
-
+protocol SecondStepProtocol: AnyObject{
+    
+ func confirmTransaction(recipientName: String?, firstAmount: String?)
+}
 class SecondStepPresenter {
     private weak var view: SecondStepView?
     private let context: NSManagedObjectContext
@@ -18,6 +21,27 @@ class SecondStepPresenter {
         self.view = view
         self.context = context
     }
+    
+    
+    
+    private func addNotification(for transaction: Transaction) {
+        let newNotification = NotificationEntity(context: context)
+        if transaction.status == "Failed" {
+            newNotification.message = "You received \(transaction.amount) from \(transaction.recipientName ?? "someone")."
+        } else {
+            newNotification.message = "You sent \(transaction.amount) to \(transaction.recipientName ?? "someone")."
+        }
+        newNotification.timestamp = Date()
+
+        do {
+            try context.save()
+        } catch {
+            view?.displayError("Error saving notification: \(error)")
+        }
+    }
+}
+
+extension SecondStepPresenter: SecondStepProtocol {
     
     func confirmTransaction(recipientName: String?, firstAmount: String?) {
         guard let recipient = recipientName, !recipient.isEmpty else {
@@ -50,21 +74,5 @@ class SecondStepPresenter {
         
         addNotification(for: newTransaction)
         LocalNotificationManager.shared.scheduleNotification(title: "Notification", body: "Successful Transfer", triggerDate: Date().addingTimeInterval(3))
-    }
-    
-    private func addNotification(for transaction: Transaction) {
-        let newNotification = NotificationEntity(context: context)
-        if transaction.status == "Failed" {
-            newNotification.message = "You received \(transaction.amount) from \(transaction.recipientName ?? "someone")."
-        } else {
-            newNotification.message = "You sent \(transaction.amount) to \(transaction.recipientName ?? "someone")."
-        }
-        newNotification.timestamp = Date()
-
-        do {
-            try context.save()
-        } catch {
-            view?.displayError("Error saving notification: \(error)")
-        }
     }
 }
