@@ -8,6 +8,8 @@ class HomeVC: UIViewController, HomeView {
     
     @IBOutlet weak var recentTransactionsTableView: UITableView!
     
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     private var presenter: HomePresenter!
     
     override func viewDidLoad() {
@@ -16,7 +18,7 @@ class HomeVC: UIViewController, HomeView {
         setUpTable()
         
         presenter = HomePresenter(view: self)
-        
+        userNameLabel.text = UserManager.shared.currentUser?.name
         presenter.fetchRecentTransactions()
     }
     override func viewWillAppear(_ animated: Bool) {

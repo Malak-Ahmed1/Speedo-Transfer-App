@@ -1,41 +1,91 @@
-//
-//  SignUp2VC.swift
-//  trial
-//
-//  Created by mariam labib on 31/08/2024.
-//
-
 import UIKit
 
-class SignUp2VC: UIViewController {
+class SignUp2VC: UIViewController, CountrySelectionDelegate {
 
     @IBOutlet weak var CountryTextField: UITextField!
     @IBOutlet weak var BirthDateTextField: UITextField!
-    @IBOutlet weak var DropDownIcon: UIImageView!
-    @IBOutlet weak var VectorIcon: UIImageView!
+
+    private var datePicker: UIDatePicker?
+    var viewModel: SecondRegistrationPresenterProtocol!
+    var user: User!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        CountryTextField.rightView = DropDownIcon
-        CountryTextField.rightViewMode = .always
-       
-        BirthDateTextField.rightView = VectorIcon
-        BirthDateTextField.rightViewMode = .always
+        
+        if let user = user {
+            viewModel = SecondRegistrationPresenter(view: self, user: user)
+        } else {
+            print("Error: User is nil")
+        }
+        setupDatePicker()
     }
-    
+
+    private func setupDatePicker() {
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        
+        if let datePicker = datePicker {
+            BirthDateTextField.inputView = datePicker
+        }
+    }
+
+    @objc private func dateChanged() {
+        if let datePicker = datePicker {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            BirthDateTextField.text = dateFormatter.string(from: datePicker.date)
+        }
+    }
+
+    @IBAction func datePickerClicked(_ sender: Any) {
+        BirthDateTextField.becomeFirstResponder()
+    }
+
+    @IBAction func countryBtnClicked(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main2", bundle: nil)
+        if let countryVC = storyboard.instantiateViewController(withIdentifier: "CountrySelectionVC") as? CountrySelectionVC {
+            countryVC.modalPresentationStyle = .pageSheet
+            if let sheet = countryVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.preferredCornerRadius = 50
+            }
+            countryVC.delegate = self // Set the delegate here
+            present(countryVC, animated: true)
+        } else {
+            print("Failed to instantiate CountrySelectionVC")
+        }
+    }
 
     @IBAction func ContinueBtn(_ sender: UIButton) {
+        self.viewModel?.tryRegister(country: CountryTextField.text, birthDate: BirthDateTextField.text)
     }
+
     @IBAction func SignInBtn(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Main2", bundle: nil)
+        let signInVC = sb.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
+        signInVC.modalPresentationStyle = .fullScreen  // Full-screen presentation
+        navigationController?.pushViewController(signInVC, animated: true)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - CountrySelectionDelegate
+
+    func didSelectCountry(_ country: String) {
+        CountryTextField.text = country
     }
-    */
+}
 
+extension SignUp2VC {
+    func showMessage(title: String, message: String) {
+        print("showMessage called with title: \(title) and message: \(message)")  // Debugging statement
+        self.showAlert(title: title, message: message, okHandler: nil, cancelHandler: nil)
+    }
+    
+    func goToNextScreen(user: User?) {
+        let sb = UIStoryboard(name: "Main2", bundle: nil)
+        let signInVC = sb.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
+        signInVC.user = user
+        signInVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(signInVC, animated: true)
+    }
 }

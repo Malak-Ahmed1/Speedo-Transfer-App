@@ -180,6 +180,7 @@
                     <navigationItem key="navigationItem" id="piS-a4-kHa"/>
                     <connections>
                         <outlet property="recentTransactionsTableView" destination="Ldl-0E-LjE" id="40h-Pr-hHe"/>
+                        <outlet property="userNameLabel" destination="a04-Eu-f5X" id="V5e-yF-F9E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo7-6H-RQX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1866,7 +1867,6 @@
         <!--Rewards-->
         <scene sceneID="p2E-F1-a3E">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ygn-uR-Xli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="RewardsVC" id="Zas-Fm-pQf" customClass="RewardsVC" customModule="Speedo_Transfer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iCB-Ep-k4D" customClass="GradientView" customModule="Speedo_Transfer_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -1997,6 +1997,7 @@
                         <outlet property="progressBar" destination="W0H-jB-4Hb" id="HDi-3M-aKQ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygn-uR-Xli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4016.8000000000002" y="-1422.4137931034484"/>
         </scene>
