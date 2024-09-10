@@ -63,6 +63,7 @@ class SecondStepVC: UIViewController {
     
     @IBAction func confirmBtnClicked(_ sender: Any) {
         presenter.confirmTransaction(recipientName: recipientNameLabel.text, firstAmount: firstAmountLabel.text)
+        
     }
     
     @IBAction func previousBtnClicked(_ sender: Any) {
