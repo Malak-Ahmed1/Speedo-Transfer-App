@@ -1069,7 +1069,7 @@
             <objects>
                 <viewController storyboardIdentifier="EditProfileVC" id="zJQ-Le-r76" customClass="EditProfileVC" customModule="Speedo_Transfer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H4g-mq-fwv" customClass="GradientView" customModule="Speedo_Transfer_App" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="vector" translatesAutoresizingMaskIntoConstraints="NO" id="1L0-iq-yP9">
@@ -1259,7 +1259,7 @@
             <objects>
                 <viewController storyboardIdentifier="ChangePasswordVC" id="TMO-nU-tIb" customClass="ChangePasswordVC" customModule="Speedo_Transfer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4hG-7s-L5r" customClass="GradientView" customModule="Speedo_Transfer_App" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="mu0-de-N48">
@@ -1389,12 +1389,12 @@
             </objects>
             <point key="canvasLocation" x="11137" y="1951"/>
         </scene>
-        <!--View Controller-->
+        <!--SettingsVC-->
         <scene sceneID="FTz-hi-DhL">
             <objects>
-                <viewController id="nOZ-eH-g9C" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" id="nOZ-eH-g9C" customClass="SettingsVC" customModule="Speedo_Transfer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cmD-5y-0HR" customClass="GradientView" customModule="Speedo_Transfer_App" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XHF-yx-PHM">
@@ -1439,9 +1439,6 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system">
                                                         <color key="baseForegroundColor" red="0.53725492949999998" green="0.53333336109999996" blue="0.52549022440000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </buttonConfiguration>
-                                                    <connections>
-                                                        <segue destination="TMO-nU-tIb" kind="show" id="YYo-5e-l0o"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1494,9 +1491,6 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system">
                                                         <color key="baseForegroundColor" red="0.53725492949999998" green="0.53333336109999996" blue="0.52549022440000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </buttonConfiguration>
-                                                    <connections>
-                                                        <segue destination="zJQ-Le-r76" kind="show" id="lgV-Vy-ttK"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1537,10 +1531,10 @@
             </objects>
             <point key="canvasLocation" x="10092" y="2113"/>
         </scene>
-        <!--View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="EHA-La-aVG">
             <objects>
-                <viewController id="F7n-jy-lm2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="F7n-jy-lm2" customClass="ProfileVC" customModule="Speedo_Transfer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KWJ-ba-cCs" customClass="GradientView" customModule="Speedo_Transfer_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1550,7 +1544,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="2Tv-dU-2bR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" rowHeight="80" id="2Tv-dU-2bR" customClass="ProfileTableViewCell" customModule="Speedo_Transfer_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Tv-dU-2bR" id="WEv-oe-sng">
@@ -1601,6 +1595,12 @@
                                                 <constraint firstItem="8NN-EA-ghO" firstAttribute="top" secondItem="WEv-oe-sng" secondAttribute="top" constant="16" id="kXv-cr-H08"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="actionBtn" destination="GUG-5r-ibG" id="mPQ-aN-yEt"/>
+                                            <outlet property="firstLabel" destination="MRj-Qn-Het" id="UfX-0V-Fnf"/>
+                                            <outlet property="profileImageView" destination="41n-rq-ijx" id="N83-RE-Ahv"/>
+                                            <outlet property="secondLabel" destination="PQe-GM-X1N" id="319-nf-CNZ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="jBH-oP-MmN">
                                         <rect key="frame" x="0.0" y="124.66666603088379" width="375" height="80"/>
@@ -1640,9 +1640,6 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system">
                                                         <color key="baseForegroundColor" red="0.53725492949999998" green="0.53333336109999996" blue="0.52549022440000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </buttonConfiguration>
-                                                    <connections>
-                                                        <segue destination="nOZ-eH-g9C" kind="show" id="xxo-bF-yRf"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1796,15 +1793,20 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="nameIcon" destination="CZu-W7-xje" id="awO-Ga-dAV"/>
+                        <outlet property="nameLabel" destination="tSf-AG-6SB" id="vXf-jN-y9V"/>
+                        <outlet property="tableView" destination="dWK-P7-7PW" id="k2D-ed-GjF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8V-2w-kJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9183" y="1560"/>
         </scene>
-        <!--ProfileVC-->
+        <!--Profile InfoVC-->
         <scene sceneID="dar-a7-B8O">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="wSK-b3-yaP" customClass="ProfileVC" customModule="Speedo_Transfer_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileInfoVC" id="wSK-b3-yaP" customClass="ProfileInfoVC" customModule="Speedo_Transfer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dar-5G-RUf" customClass="GradientView" customModule="Speedo_Transfer_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

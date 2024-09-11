@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileVC: UIViewController {
+class EditProfileVC: UIViewController, EditProfileView {
 
     @IBOutlet weak var FullNameTextField: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
@@ -15,29 +15,39 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var BirthDateTextField: UITextField!
     @IBOutlet weak var dropDownIcon: UIImageView!
     @IBOutlet weak var vectorIcon: UIImageView!
+    var presenter: EditProfilePresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        CountryTextField.rightView = dropDownIcon
-        CountryTextField.rightViewMode = .always
-        
-        BirthDateTextField.rightView = vectorIcon
-        BirthDateTextField.rightViewMode = .always
-        
+        presenter = EditProfilePresenter(view: self)
+        presenter?.viewDidLoad()
     }
     
     @IBAction func SaveBtn(_ sender: UIButton) {
+        presenter?.saveChanges(
+                    fullName: FullNameTextField.text,
+                    email: EmailTextField.text,
+                    country: CountryTextField.text,
+                    birthDate: BirthDateTextField.text
+                )
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    func updateUserInfo(fullName: String, email: String, country: String, birthDate: String) {
+        FullNameTextField.text = fullName
+        EmailTextField.text = email
+        CountryTextField.text = country
+        BirthDateTextField.text = birthDate
+        }
+        
+        func showSuccessMessage(_ message: String) {
+            let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        
+        func showErrorMessage(_ message: String) {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
 }

@@ -20,7 +20,7 @@
 		7C3AC3D72C8B11D7004C4D2D /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */; };
 		7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */; };
 		7C3AC3DA2C8B11FB004C4D2D /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */; };
-		7C3AC3DC2C8B12EA004C4D2D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3DB2C8B12EA004C4D2D /* ProfileVC.swift */; };
+		7C3AC3DC2C8B12EA004C4D2D /* ProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3DB2C8B12EA004C4D2D /* ProfileInfoVC.swift */; };
 		7C3AC3DE2C8B15E1004C4D2D /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3DD2C8B15E1004C4D2D /* HelpVC.swift */; };
 		7C3CFAB32C81C810003739CB /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3CFAB22C81C810003739CB /* OnboardingSlide.swift */; };
 		7C3CFAB52C81DF45003739CB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3CFAB42C81DF45003739CB /* OnboardingCollectionViewCell.swift */; };
@@ -81,7 +81,7 @@
 		7CD8830A2C90B8280020E617 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD883092C90B8280020E617 /* User.swift */; };
 		7CD883112C90E2A60020E617 /* SecRegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD8830F2C90E2A60020E617 /* SecRegistrationPresenter.swift */; };
 		7CD883122C90E2A60020E617 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD883102C90E2A60020E617 /* RegistrationPresenter.swift */; };
-		7CD883172C90E2FD0020E617 /* settingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD883132C90E2FC0020E617 /* settingsVC.swift */; };
+		7CD883172C90E2FD0020E617 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD883132C90E2FC0020E617 /* SettingsVC.swift */; };
 		7CD883182C90E2FD0020E617 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD883142C90E2FC0020E617 /* SignInVC.swift */; };
 		7CD883192C90E2FD0020E617 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD883152C90E2FC0020E617 /* SignUpVC.swift */; };
 		7CD8831A2C90E2FD0020E617 /* SignUp2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD883162C90E2FC0020E617 /* SignUp2VC.swift */; };
@@ -90,13 +90,20 @@
 		7CDB0D652C8B7CD7004117C1 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB0D642C8B7CD7004117C1 /* EditVC.swift */; };
 		7CDC4C3A2C88D2C0006E77F8 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC4C392C88D2C0006E77F8 /* UIVC+Alert.swift */; };
 		7CE328E32C839922000AB319 /* ContainerPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE328E22C839922000AB319 /* ContainerPageVC.swift */; };
-		7CE778362C91CE18005C5A04 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778352C91CE18005C5A04 /* ProfilePresenter.swift */; };
+		7CE778362C91CE18005C5A04 /* PersonalInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778352C91CE18005C5A04 /* PersonalInfoPresenter.swift */; };
 		7CE778382C91D83C005C5A04 /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778372C91D83C005C5A04 /* ProfileInfoCell.swift */; };
+		7CE7783A2C924978005C5A04 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778392C924978005C5A04 /* ProfileVC.swift */; };
+		7CE7783C2C9249BC005C5A04 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7783B2C9249BC005C5A04 /* ProfilePresenter.swift */; };
+		7CE7783E2C924A42005C5A04 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7783D2C924A42005C5A04 /* ProfileTableViewCell.swift */; };
+		7CE778402C924B2C005C5A04 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7783F2C924B2C005C5A04 /* SettingsTableViewCell.swift */; };
+		7CE778422C924B5D005C5A04 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778412C924B5D005C5A04 /* SettingsPresenter.swift */; };
+		7CE778442C924B95005C5A04 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778432C924B95005C5A04 /* EditProfilePresenter.swift */; };
+		7CE778462C924C39005C5A04 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778452C924C39005C5A04 /* EditProfileVC.swift */; };
+		7CE778482C924C8C005C5A04 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778472C924C8C005C5A04 /* ChangePasswordPresenter.swift */; };
 		92B024D32C90D46600171CEA /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024D22C90D46600171CEA /* LoginPresenter.swift */; };
 		92B024E02C90D58600171CEA /* FavouriteRecipient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024DE2C90D58500171CEA /* FavouriteRecipient+CoreDataProperties.swift */; };
 		92B024E12C90D58600171CEA /* FavouriteRecipient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024DF2C90D58500171CEA /* FavouriteRecipient+CoreDataClass.swift */; };
 		92B024E92C90D61900171CEA /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024E62C90D61900171CEA /* AlertVC.swift */; };
-		92B024EA2C90D61900171CEA /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024E72C90D61900171CEA /* EditProfileVC.swift */; };
 		92B024EB2C90D61900171CEA /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024E82C90D61900171CEA /* ChangePasswordVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +138,7 @@
 		7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
 		7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCell.xib; sourceTree = "<group>"; };
 		7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
-		7C3AC3DB2C8B12EA004C4D2D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		7C3AC3DB2C8B12EA004C4D2D /* ProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVC.swift; sourceTree = "<group>"; };
 		7C3AC3DD2C8B15E1004C4D2D /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
 		7C3CFAB22C81C810003739CB /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		7C3CFAB42C81DF45003739CB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -197,7 +204,7 @@
 		7CD883092C90B8280020E617 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7CD8830F2C90E2A60020E617 /* SecRegistrationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecRegistrationPresenter.swift; sourceTree = "<group>"; };
 		7CD883102C90E2A60020E617 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
-		7CD883132C90E2FC0020E617 /* settingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsVC.swift; sourceTree = "<group>"; };
+		7CD883132C90E2FC0020E617 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		7CD883142C90E2FC0020E617 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		7CD883152C90E2FC0020E617 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		7CD883162C90E2FC0020E617 /* SignUp2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp2VC.swift; sourceTree = "<group>"; };
@@ -206,14 +213,21 @@
 		7CDB0D642C8B7CD7004117C1 /* EditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		7CDC4C392C88D2C0006E77F8 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
 		7CE328E22C839922000AB319 /* ContainerPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPageVC.swift; sourceTree = "<group>"; };
-		7CE778352C91CE18005C5A04 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		7CE778352C91CE18005C5A04 /* PersonalInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoPresenter.swift; sourceTree = "<group>"; };
 		7CE778372C91D83C005C5A04 /* ProfileInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
+		7CE778392C924978005C5A04 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		7CE7783B2C9249BC005C5A04 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		7CE7783D2C924A42005C5A04 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		7CE7783F2C924B2C005C5A04 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		7CE778412C924B5D005C5A04 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		7CE778432C924B95005C5A04 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		7CE778452C924C39005C5A04 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		7CE778472C924C8C005C5A04 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
 		7FAC409776E5E718E4D51EA6 /* Pods_Speedo_Transfer_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Speedo_Transfer_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B024D22C90D46600171CEA /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		92B024DE2C90D58500171CEA /* FavouriteRecipient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavouriteRecipient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92B024DF2C90D58500171CEA /* FavouriteRecipient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavouriteRecipient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92B024E62C90D61900171CEA /* AlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
-		92B024E72C90D61900171CEA /* EditProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		92B024E82C90D61900171CEA /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		92B024EC2C90D63300171CEA /* Inter-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-SemiBoldItalic.ttf"; path = "ttf/Inter-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		92B024ED2C90D63300171CEA /* InterDisplay-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "InterDisplay-LightItalic.ttf"; path = "ttf/InterDisplay-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -399,7 +413,11 @@
 				7C0BE2EF2C8F2F860032626C /* ThirdStepPresenter.swift */,
 				92B024D22C90D46600171CEA /* LoginPresenter.swift */,
 				7C0BE2F12C8F32990032626C /* ContainerPagePresenter.swift */,
-				7CE778352C91CE18005C5A04 /* ProfilePresenter.swift */,
+				7CE778352C91CE18005C5A04 /* PersonalInfoPresenter.swift */,
+				7CE7783B2C9249BC005C5A04 /* ProfilePresenter.swift */,
+				7CE778412C924B5D005C5A04 /* SettingsPresenter.swift */,
+				7CE778432C924B95005C5A04 /* EditProfilePresenter.swift */,
+				7CE778472C924C8C005C5A04 /* ChangePasswordPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -522,7 +540,7 @@
 		7CBBC96F2C80541F005B90D5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7CD883132C90E2FC0020E617 /* settingsVC.swift */,
+				7CD883132C90E2FC0020E617 /* SettingsVC.swift */,
 				7CD883142C90E2FC0020E617 /* SignInVC.swift */,
 				7CD883162C90E2FC0020E617 /* SignUp2VC.swift */,
 				7CD883152C90E2FC0020E617 /* SignUpVC.swift */,
@@ -537,9 +555,10 @@
 				7C3CFAB12C81C767003739CB /* Onboarding */,
 				92B024E62C90D61900171CEA /* AlertVC.swift */,
 				92B024E82C90D61900171CEA /* ChangePasswordVC.swift */,
-				92B024E72C90D61900171CEA /* EditProfileVC.swift */,
-				7C3AC3DB2C8B12EA004C4D2D /* ProfileVC.swift */,
+				7C3AC3DB2C8B12EA004C4D2D /* ProfileInfoVC.swift */,
 				7CD8831D2C90FF350020E617 /* CountrySelectionVC.swift */,
+				7CE778392C924978005C5A04 /* ProfileVC.swift */,
+				7CE778452C924C39005C5A04 /* EditProfileVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -559,6 +578,8 @@
 				7CD883092C90B8280020E617 /* User.swift */,
 				7CD8831B2C90F4270020E617 /* UserManager.swift */,
 				7CE778372C91D83C005C5A04 /* ProfileInfoCell.swift */,
+				7CE7783D2C924A42005C5A04 /* ProfileTableViewCell.swift */,
+				7CE7783F2C924B2C005C5A04 /* SettingsTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -788,12 +809,14 @@
 			files = (
 				7C9D523B2C867C8A0061DF52 /* CustomTextField.swift in Sources */,
 				7CBBC9792C8098FC005B90D5 /* CustomPageControl.swift in Sources */,
+				7CE778402C924B2C005C5A04 /* SettingsTableViewCell.swift in Sources */,
 				7CBBC9322C805032005B90D5 /* ViewController.swift in Sources */,
 				7C9A656B2C8A1B6A009DFE5C /* LocalNotificationManager.swift in Sources */,
 				7C6870C92C8CD99000C54A12 /* NotificationCell.swift in Sources */,
 				7CE778382C91D83C005C5A04 /* ProfileInfoCell.swift in Sources */,
 				7CA2BAB92C83BE3D00774097 /* CustomStepControl.swift in Sources */,
 				7CD883082C90A8400020E617 /* PointsManager.swift in Sources */,
+				7CE7783C2C9249BC005C5A04 /* ProfilePresenter.swift in Sources */,
 				7C3AC3DE2C8B15E1004C4D2D /* HelpVC.swift in Sources */,
 				7C9E3A292C8770EE00F304D3 /* CustomButton.swift in Sources */,
 				7CDC4C3A2C88D2C0006E77F8 /* UIVC+Alert.swift in Sources */,
@@ -803,10 +826,9 @@
 				7C9A656E2C8A3212009DFE5C /* MoreTableCell.swift in Sources */,
 				7C0BE2F22C8F32990032626C /* ContainerPagePresenter.swift in Sources */,
 				7CBBC9742C8054C8005B90D5 /* OnboardingVC.swift in Sources */,
-				7CD883172C90E2FD0020E617 /* settingsVC.swift in Sources */,
+				7CD883172C90E2FD0020E617 /* SettingsVC.swift in Sources */,
 				92B024D32C90D46600171CEA /* LoginPresenter.swift in Sources */,
 				7CD8831C2C90F4270020E617 /* UserManager.swift in Sources */,
-				92B024EA2C90D61900171CEA /* EditProfileVC.swift in Sources */,
 				7CA473902C8335FE00D0EDE3 /* MoreVC.swift in Sources */,
 				7C6870C42C8CC03200C54A12 /* TransactionInfoVC.swift in Sources */,
 				7CDB0D652C8B7CD7004117C1 /* EditVC.swift in Sources */,
@@ -816,8 +838,9 @@
 				7C0BE2EB2C8F01520032626C /* Transaction+CoreDataProperties.swift in Sources */,
 				7CB4E13A2C8E72DE00C5AB04 /* TransactionsPresenter.swift in Sources */,
 				7CB4E13C2C8E767600C5AB04 /* OnboardingPresenter.swift in Sources */,
+				7CE778462C924C39005C5A04 /* EditProfileVC.swift in Sources */,
 				7CBBC92E2C805032005B90D5 /* AppDelegate.swift in Sources */,
-				7CE778362C91CE18005C5A04 /* ProfilePresenter.swift in Sources */,
+				7CE778362C91CE18005C5A04 /* PersonalInfoPresenter.swift in Sources */,
 				7CB4E1312C8E0EB900C5AB04 /* FavouritesPresenter.swift in Sources */,
 				7CD883032C90973F0020E617 /* CustomProgressBar.swift in Sources */,
 				7CB4E12F2C8E01DC00C5AB04 /* NotificationPresenter.swift in Sources */,
@@ -825,7 +848,7 @@
 				7CA473922C8354BB00D0EDE3 /* SecondStepVC.swift in Sources */,
 				7C9E83F32C8582B5000FFDE6 /* show.swift in Sources */,
 				7C0BE2EC2C8F01520032626C /* Transaction+CoreDataClass.swift in Sources */,
-				7C3AC3DC2C8B12EA004C4D2D /* ProfileVC.swift in Sources */,
+				7C3AC3DC2C8B12EA004C4D2D /* ProfileInfoVC.swift in Sources */,
 				7CA1366C2C8898D100D9F001 /* Speedo Transfer App.xcdatamodeld in Sources */,
 				7C2C08492C8F4312004650B9 /* Speedo Transfer App.xcdatamodeld in Sources */,
 				7C3AC3D72C8B11D7004C4D2D /* FavouritesCell.swift in Sources */,
@@ -843,13 +866,17 @@
 				7CD8830A2C90B8280020E617 /* User.swift in Sources */,
 				7CD8831A2C90E2FD0020E617 /* SignUp2VC.swift in Sources */,
 				7CB4E13E2C8E7F7100C5AB04 /* FirstStepPresenter.swift in Sources */,
+				7CE778442C924B95005C5A04 /* EditProfilePresenter.swift in Sources */,
 				7C9E3A232C8749C500F304D3 /* FavouriteListCell.swift in Sources */,
 				7CE328E32C839922000AB319 /* ContainerPageVC.swift in Sources */,
 				7CA4738D2C8335DD00D0EDE3 /* TransactionsVC.swift in Sources */,
+				7CE7783A2C924978005C5A04 /* ProfileVC.swift in Sources */,
+				7CE778422C924B5D005C5A04 /* SettingsPresenter.swift in Sources */,
 				92B024E92C90D61900171CEA /* AlertVC.swift in Sources */,
 				92B024EB2C90D61900171CEA /* ChangePasswordVC.swift in Sources */,
 				7C3CFAB52C81DF45003739CB /* OnboardingCollectionViewCell.swift in Sources */,
 				7CBBC9772C806A62005B90D5 /* Gradient View.swift in Sources */,
+				7CE778482C924C8C005C5A04 /* ChangePasswordPresenter.swift in Sources */,
 				7C9E3A262C874D2D00F304D3 /* FavouriteListVC.swift in Sources */,
 				7CD883192C90E2FD0020E617 /* SignUpVC.swift in Sources */,
 				7CA473852C8329D300D0EDE3 /* HomeVC.swift in Sources */,
@@ -857,6 +884,7 @@
 				7CA140132C822E150018232D /* ServerErrorVC.swift in Sources */,
 				7C6870C62C8CD90D00C54A12 /* NotificationsVC.swift in Sources */,
 				7C9E83F62C85843E000FFDE6 /* APIManager.swift in Sources */,
+				7CE7783E2C924A42005C5A04 /* ProfileTableViewCell.swift in Sources */,
 				7CAC47702C826AC900439771 /* CustomPinkColor.swift in Sources */,
 				7CA78DDE2C8C71A200316F3D /* TransactionsListCell.swift in Sources */,
 				7C0BE2EE2C8F2C2B0032626C /* SecondStepPresenter.swift in Sources */,

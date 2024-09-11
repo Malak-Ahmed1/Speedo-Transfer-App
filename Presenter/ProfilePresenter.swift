@@ -2,35 +2,50 @@
 //  ProfilePresenter.swift
 //  Speedo Transfer App
 //
-//  Created by 1234 on 11/09/2024.
+//  Created by mariam labib on 11/09/2024.
 //
 
 import Foundation
 
-
-protocol ProfilePresenterProtocol {
-    func loadUserInfo()
+protocol ProfileView: AnyObject {
+    func displayUserName(_ name: String)
+    func updateTableView()
 }
 
-class ProfilePresenter: ProfilePresenterProtocol {
-    weak var view: ProfileVC?
+class ProfilePresenter {
     
-    init(view: ProfileVC) {
+    weak var view: ProfileView?
+    
+    init(view: ProfileView) {
         self.view = view
     }
     
-    func loadUserInfo() {
-            guard let user = UserManager.shared.currentUser else { return }
-            
-            let userInfo = [
-                (title: "Name:", info: user.name ?? ""),
-                (title: "Email:", info: user.email ?? ""),
-                (title: "Birth Date:", info: user.birthDate ?? ""),
-                (title: "Country:", info: user.country ?? ""),
-                (title: "Bank Account:", info: "Account xxxx7890")
-            ]
-            
-            view?.displayUserInfo(userInfo: userInfo)
+    func viewDidLoad() {
+        print("Profile opened")
+        
+        let def = UserDefaults.standard
+        def.setValue(true, forKey: "isLoggedIn")
+        
+        if let user = retrieveUserFromUserDefaults() {
+            view?.displayUserName(user.name!)
+        } else {
+            view?.displayUserName("Unknown User")
         }
+        
+        view?.updateTableView()
+    }
+    
+    func retrieveUserFromUserDefaults() -> User? {
+        let defaults = UserDefaults.standard
+        
+        if let savedUserData = defaults.data(forKey: "savedUser") {
+            do {
+                let decodedUser = try JSONDecoder().decode(User.self, from: savedUserData)
+                return decodedUser
+            } catch {
+                print("Failed to decode user: \(error)")
+            }
+        }
+        return nil
+    }
 }
-
