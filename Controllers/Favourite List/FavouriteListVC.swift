@@ -19,7 +19,7 @@ class FavouriteListVC: UIViewController, FavouritesView {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
-        presenter = FavouritesPresenter(view: self)
+        presenter = FavouritesPresenter(view: self, userEmail: (UserManager.shared.currentUser?.email)!)
         presenter.getFavourites()
     }
     

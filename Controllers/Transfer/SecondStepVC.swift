@@ -19,6 +19,7 @@ class SecondStepVC: UIViewController {
     @IBOutlet weak var firstAmountLabel: UILabel!
     @IBOutlet weak var secondAmountLabel: UILabel!
     
+
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var userAccountLabel: UILabel!
@@ -36,7 +37,9 @@ class SecondStepVC: UIViewController {
         super.viewDidLoad()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         presenter = SecondStepPresenter(view: self, context: context)
-        
+           if userNameLabel == nil {
+               print("userNameLabel is nil")
+           }
         updateUI()
     }
     
@@ -49,10 +52,27 @@ class SecondStepVC: UIViewController {
         if let amount = amount {
             firstAmountLabel?.text = amount
             secondAmountLabel?.text = amount
+        } else {
+            firstAmountLabel?.text = "N/A"
+            secondAmountLabel?.text = "N/A"
         }
-        recipientNameLabel?.text = recipientName
-        recipientAccountLabel?.text = recipientAccount
+        
+        recipientNameLabel?.text = recipientName ?? "N/A"
+        recipientAccountLabel?.text = recipientAccount ?? "N/A"
+        
+        if userNameLabel == nil {
+            print("userNameLabel is nil")
+        } else {
+            if let currentUser = UserManager.shared.currentUser {
+                if let name = currentUser.name {
+                    userNameLabel.text = name
+                }
+            }
+        }
+        
+        userAccountLabel?.text = "Account xxxx7890"
     }
+
     
     func setupTransactionInfo(amount: String?, recipientName: String?, recipientAccount: String?) {
         self.amount = amount

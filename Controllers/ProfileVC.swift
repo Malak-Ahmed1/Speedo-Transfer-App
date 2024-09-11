@@ -1,29 +1,45 @@
-//
-//  ProfileVC.swift
-//  Speedo Transfer App
-//
-//  Created by 1234 on 06/09/2024.
-//
-
 import UIKit
 
 class ProfileVC: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var viewModel: ProfilePresenterProtocol!
+    var userInfo: [(title: String, info: String)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel = ProfilePresenter(view: self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        viewModel.loadUserInfo()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func displayUserInfo(userInfo: [(title: String, info: String)]) {
+        self.userInfo = userInfo
+        tableView.reloadData()
     }
-    */
+}
 
+extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userInfo.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell", for: indexPath) as! ProfileInfoCell
+        
+        let userInfoItem = userInfo[indexPath.row]
+        cell.title.text = userInfoItem.title
+        cell.info.text = userInfoItem.info
+        
+        
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
 }

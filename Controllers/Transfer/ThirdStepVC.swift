@@ -32,13 +32,32 @@ class ThirdStepVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        presenter = ThirdStepPresenter(view: self, context: context)
         updateUI()
+        
+        
     }
     
     private func updateUI() {
         amountLabel?.text = amount
         recipientNameLabel?.text = recipientName
         recipientAccountLabel?.text = recipientAccount
+        if userNameLabel == nil {
+            print("userNameLabel is nil")
+        } else {
+            // Check if `currentUser` is nil
+            if let currentUser = UserManager.shared.currentUser {
+                if let name = currentUser.name {
+                    userNameLabel.text = name
+                }
+            }
+        }
+        if userNameLabel == nil {
+            print("userNameLabel is nil")
+        } else {
+            userAccountLabel.text = "Account xxxx7890"
+        }
     }
     
     func setupTransactionInfo(amount: String?, recipientName: String?, recipientAccount: String?) {
@@ -65,6 +84,7 @@ class ThirdStepVC: UIViewController {
         }, cancelHandler: {
         })
     }
+    
     
     
 }

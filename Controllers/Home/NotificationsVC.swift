@@ -18,7 +18,7 @@ class NotificationsVC: UIViewController, NotificationView {
         super.viewDidLoad()
 
         setUpTable()
-        presenter = NotificationPresenter(view: self)
+        presenter = NotificationPresenter(view: self, userEmail: (UserManager.shared.currentUser?.email)!)
         presenter.getNotifications()
     }
     
@@ -57,7 +57,7 @@ extension NotificationsVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
         
         let notification = self.presenter.getNotificationArr()[indexPath.row]
-        cell.setUpCell(transactionType: "Received", message: notification.message!, transactionDate: "date")
+        cell.setUpCell(transactionType: "Sent", message: notification.message!, transactionDate: "date")
         cell.backgroundColor = .clear
         return cell
     }

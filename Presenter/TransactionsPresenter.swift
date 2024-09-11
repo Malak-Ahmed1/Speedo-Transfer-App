@@ -29,16 +29,25 @@ class TransactionsPresenter {
 extension TransactionsPresenter: TransactionsPresenterProtocol {
     
     func fetchAllTransactions() {
+        guard let currentUserEmail = UserManager.shared.currentUser?.email else {
+            print("No current user found")
+            return
+        }
+
         do {
-            // Fetch all transactions
-            self.transactionArr = try transactionService.fetchAllTransactions()
+            // Fetch all transactions for the current user
+            self.transactionArr = try transactionService.fetchAllTransactions(forUser: currentUserEmail)
+            
+            print("Fetched transactions: \(self.transactionArr)") // Debug print
+
             DispatchQueue.main.async { [weak self] in
                 self?.view?.reloadTransactions()
             }
         } catch {
-            print("Error Fetching Transactions")
+            print("Error fetching transactions for user: \(currentUserEmail)")
         }
     }
+
     
     func getTransaction(at index: Int) -> Transaction? {
         guard index >= 0 && index < transactionArr.count else { return nil }

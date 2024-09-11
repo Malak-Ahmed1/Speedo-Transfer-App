@@ -10,16 +10,15 @@ class HomeVC: UIViewController, HomeView {
     
     @IBOutlet weak var userNameLabel: UILabel!
     
+    @IBOutlet weak var balanceLabel: UILabel!
+    
+    @IBOutlet weak var userNameCharacters: UILabel!
     private var presenter: HomePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         
-        setUpTable()
-        
-        presenter = HomePresenter(view: self)
-        userNameLabel.text = UserManager.shared.currentUser?.name
-        presenter.fetchRecentTransactions()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,15 +26,30 @@ class HomeVC: UIViewController, HomeView {
         self.recentTransactionsTableView.reloadData()
     }
     
-    func setUpTable() {
+    private func setUpTable() {
         
         recentTransactionsTableView.delegate = self
         recentTransactionsTableView.dataSource = self
         recentTransactionsTableView.register(UINib(nibName: "RecentTransactionCell", bundle: nil), forCellReuseIdentifier: "RecentTransactionCell")
         
     }
-    func displayTransactions(transactions: [Transaction]) {
-        // Reload the table view when transactions are fetched
+    private func setUpUI() {
+        setUpTable()
+        
+        presenter = HomePresenter(view: self)
+        presenter.fetchRecentTransactions()
+        
+        userNameLabel.text = UserManager.shared.currentUser?.name
+        if let balance = UserManager.shared.currentUser?.balance {
+            balanceLabel.text = "\(balance) EGP"
+        } else {
+            balanceLabel.text = "0.0"
+        }
+        updateUserInitials(from: userNameLabel.text ?? "")
+        
+        
+    }
+     func displayTransactions(transactions: [Transaction]) {
         DispatchQueue.main.async { [weak self] in
             self?.recentTransactionsTableView.reloadData()
         }
@@ -54,6 +68,14 @@ class HomeVC: UIViewController, HomeView {
         notificationsVC.title = "Notifications"
         
     }
+    func updateUserInitials(from name: String) {
+        let components = name.split(separator: " ")
+        
+        let initials = components.map { $0.prefix(1).uppercased() }.joined()
+        
+        userNameCharacters.text = initials
+    }
+
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {

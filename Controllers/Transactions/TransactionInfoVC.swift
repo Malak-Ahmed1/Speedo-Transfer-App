@@ -12,20 +12,21 @@ class TransactionInfoVC: UIViewController {
     @IBOutlet weak var transactionIdLabel: UILabel!
     @IBOutlet weak var recipientAccountLabel: UILabel!
 
+    @IBOutlet weak var amountLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         if let transaction = transaction {
             
             
-            // will be as api
             
             transferType.text = transaction.status
-            senderNameLabel.text = transaction.recipientName
-            senderAccountLabel.text = transaction.visaInfo
+            senderNameLabel.text = UserManager.shared.currentUser?.name
+            senderAccountLabel.text = "Visa . Master Card . 1234"
             recipientNameLabel.text = transaction.recipientName
             dateLabel.text = transaction.date
             transactionIdLabel.text = "123456"
             recipientAccountLabel.text = transaction.visaInfo
+            amountLabel.text = "\(transaction.amount)"
         }
     }
 }

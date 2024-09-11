@@ -1,24 +1,25 @@
-//
-//  PointsManager.swift
-//  Speedo Transfer App
-//
-//  Created by 1234 on 10/09/2024.
-//
-
 import Foundation
 
 class PointsManager {
     static let shared = PointsManager()
-    private(set) var totalPoints = 0
+    
+    private(set) var totalPoints: Int = UserManager.shared.currentUser?.points ?? 0
     weak var rewardsVC: RewardsVC?
 
     private init() {}
 
     func incrementPoints(by amount: Int) {
         totalPoints += amount
-        rewardsVC?.updateUI() // Notify view to update UI
+        if let email = UserManager.shared.currentUser?.email {
+            UserManager.shared.updatePoints(for: email, newPoints: totalPoints)
+        }
+        rewardsVC?.updateUI()
     }
+
     func setTotalPoints(_ totalPoints: Int) {
         self.totalPoints = totalPoints
+        if let email = UserManager.shared.currentUser?.email {
+            UserManager.shared.updatePoints(for: email, newPoints: totalPoints)
+        }
     }
 }

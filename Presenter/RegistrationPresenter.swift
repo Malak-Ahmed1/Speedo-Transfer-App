@@ -1,7 +1,7 @@
 import Foundation
 
 protocol RegistrationPresenterProtocol {
-    func tryRegister(name: String?, email: String?, pass1: String?, pass2: String?)
+    func tryRegister(name: String?, email: String?, pass1: String?, pass2: String?, country: String?, birthDate: String?)
 }
 
 class RegistrationPresenter: RegistrationPresenterProtocol {
@@ -13,7 +13,6 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
     
     // Validate email format
     func isValidEmail(email: String) -> Bool {
-        // Simple email validation regex
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\\.[A-Z]{2,}"
         let emailTest = NSPredicate(format: "SELF MATCHES[c] %@", emailRegex)
         return emailTest.evaluate(with: email)
@@ -26,7 +25,7 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
         return passwordTest.evaluate(with: password)
     }
     
-    func isValidData(name: String?, email: String?, pass1: String?, pass2: String?) -> Bool {
+    func isValidData(name: String?, email: String?, pass1: String?, pass2: String?, country: String?, birthDate: String?) -> Bool {
         guard let name = name?.trimmed, !name.isEmpty else {
             self.view.showMessage(title: "Sorry", message: "Please enter your name!")
             return false
@@ -38,7 +37,7 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
         }
         
         guard let pass1 = pass1?.trimmed, !pass1.isEmpty, isStrongPassword(password: pass1) else {
-            self.view.showMessage(title: "Sorry", message: "Please enter a strong password!")
+            self.view.showMessage(title: "Weak Password", message: "Your password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.")
             return false
         }
         
@@ -46,6 +45,8 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
             self.view.showMessage(title: "Sorry", message: "Please confirm your password!")
             return false
         }
+        
+       
         
         return true
     }
@@ -58,43 +59,17 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
         return false
     }
     
-    func getUserData(name: String?, email: String?, pass: String?) -> User {
-        return User(name: name!, email: email!, password: pass!, country: nil, birthDate: nil)
-    }
-    
-    func isEmailExists(email: String) -> Bool {
-        // Retrieve existing users
-        let users = UserDefaults.standard.array(forKey: "users") as? [[String: Any]] ?? []
-        
-        // Check if email already exists
-        return users.contains(where: { ($0["email"] as? String) == email })
-    }
-    
-    func saveUser(user: User) {
-        // Retrieve existing users
-        var users = UserDefaults.standard.array(forKey: "users") as? [[String: Any]] ?? []
-        
-        // Convert user to dictionary
-        let userDict: [String: Any] = ["name": user.name, "email": user.email, "password": user.password, "country": user.country ?? "", "birthDate": user.birthDate ?? ""]
-        
-        // Add new user to the list
-        users.append(userDict)
-        
-        // Save updated list to UserDefaults
-        UserDefaults.standard.set(users, forKey: "users")
-    }
-    
-    func tryRegister(name: String?, email: String?, pass1: String?, pass2: String?) {
-        if self.isValidData(name: name, email: email, pass1: pass1, pass2: pass2) {
-            if self.isConfirmedPassword(password: pass1!, confirmedPassword: pass2!) {
-                if !self.isEmailExists(email: email!) {
-                    let user = self.getUserData(name: name, email: email, pass: pass1)
-                    self.saveUser(user: user)
-                    self.view.goToNextScreen(user: user)
-                } else {
-                    self.view.showMessage(title: "Sorry", message: "Email is already registered!")
-                }
-            }
-        }
-    }
+    func tryRegister(name: String?, email: String?, pass1: String?, pass2: String?, country: String?, birthDate: String?) {
+        if self.isValidData(name: name, email: email, pass1: pass1, pass2: pass2, country: "", birthDate: "") {
+               if self.isConfirmedPassword(password: pass1!, confirmedPassword: pass2!) {
+                   if !UserManager.shared.registerUser(name: name!, email: email!, password: pass1!, country: "", birthDate: "") {
+                       self.view.showMessage(title: "Sorry", message: "Email is already registered!")
+                   } else {
+                       // Pass the user to the next screen
+                       let user = User(name: name!, email: email!, password: pass1!, country: "", birthDate: "", balance: 10000, points: 0) // Create a user object
+                       self.view.goToNextScreen(user: user)
+                   }
+               }
+           }
+       }
 }

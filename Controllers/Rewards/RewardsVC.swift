@@ -15,6 +15,9 @@ class RewardsVC: UIViewController {
         updateUI()
     }
 
+    @IBAction func backBtnClicked(_ sender: Any) {
+        tabBarController?.selectedIndex = 0
+    }
     func updateUI() {
         earnedPointsLabel.text = "\(PointsManager.shared.totalPoints)"
         let progress = Float(PointsManager.shared.totalPoints) / 5000.0

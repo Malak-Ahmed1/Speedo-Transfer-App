@@ -18,14 +18,19 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func SignUpBtn(_ sender: UIButton) {
-        self.viewModel.tryRegister(name: FullNameTextField.text, email: EmailTextField.text, pass1: PasswordTextField.text, pass2: ConfirmPassTextField.text)
+        self.viewModel.tryRegister(name: FullNameTextField.text,
+                                   email: EmailTextField.text,
+                                   pass1: PasswordTextField.text,
+                                   pass2: ConfirmPassTextField.text,
+                                   country: nil, // No country here
+                                   birthDate: nil) // No birth date here
     }
     
     @IBAction func SignInBtn(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Main2", bundle: nil)
         let signInVC = sb.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
-        signInVC.modalPresentationStyle = .fullScreen  // Full-screen presentation
-        navigationController?.pushViewController(signInVC, animated: true)
+        signInVC.modalPresentationStyle = .fullScreen  // Full-screen
+        present(signInVC, animated: true)
     }
     
     func goToNextScreen(user: User) {
@@ -33,7 +38,8 @@ class SignUpVC: UIViewController {
         let signUp2VC = sb.instantiateViewController(withIdentifier: "SignUp2VC") as! SignUp2VC
         signUp2VC.user = user
         signUp2VC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(signUp2VC, animated: true)
+        present(signUp2VC, animated: true)
+        
     }
 }
 

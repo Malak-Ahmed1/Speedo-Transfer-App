@@ -18,5 +18,6 @@ extension FavouriteRecipient {
 
     @NSManaged public var userName: String?
     @NSManaged public var accountNumber: String?
+    @NSManaged public var email: String?
 
 }

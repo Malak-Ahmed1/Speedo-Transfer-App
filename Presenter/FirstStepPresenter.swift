@@ -16,19 +16,26 @@ class FirstStepPresenter {
     }
     func isValidData(amount: String?, recipientName: String?, recipientAccount: String?) -> Bool {
         
-        // To.Do: check if amount > 0 && <= user.amount
-        guard amount?.trimmed != "" else {
+        guard let amountText = amount?.trimmingCharacters(in: .whitespacesAndNewlines), !amountText.isEmpty else {
             self.view?.showMessage(title: "Sorry", message: "Please enter a valid amount!")
             return false
         }
         
-        guard recipientName?.trimmed != "" else {
-            self.view?.showMessage(title: "Sorry", message: "Please enter arecipient name!")
+        // Attempt to convert the amount to a Double
+        guard let amountValue = Double(amountText), amountValue > 0 else {
+            self.view?.showMessage(title: "Sorry", message: "Please enter a valid amount greater than 0!")
             return false
         }
         
-        guard recipientAccount?.trimmed != "" else {
-            self.view?.showMessage(title: "Sorry", message: "Please enter recipient Account!")
+        // Check if recipientName is not empty
+        guard let recipientNameText = recipientName?.trimmingCharacters(in: .whitespacesAndNewlines), !recipientNameText.isEmpty else {
+            self.view?.showMessage(title: "Sorry", message: "Please enter a recipient name!")
+            return false
+        }
+        
+        // Check if recipientAccount is not empty
+        guard let recipientAccountText = recipientAccount?.trimmingCharacters(in: .whitespacesAndNewlines), !recipientAccountText.isEmpty else {
+            self.view?.showMessage(title: "Sorry", message: "Please enter recipient account!")
             return false
         }
         
@@ -50,8 +57,8 @@ extension FirstStepPresenter: FirstStepPresenterProtocol {
             return
         }
     }
-
-
+    
+    
     
     func backButtonTapped() {
         if let viewController = view as? UIViewController {

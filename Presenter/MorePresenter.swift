@@ -58,7 +58,7 @@ extension MorePresenter: MorePresenterProtocol {
     }
     
     private func navigateToProfile() -> UIViewController? {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let sb = UIStoryboard(name: "Main2", bundle: nil)
         let viewController = sb.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         viewController.title = "Profile"
         return viewController
@@ -71,6 +71,7 @@ extension MorePresenter: MorePresenterProtocol {
     }
     
     private func navigateToSignIn() -> UIViewController? {
+        UserManager.shared.currentUser = nil
         let signInSB = UIStoryboard(name: "Main2", bundle: nil)
         let viewController = signInSB.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
         return viewController

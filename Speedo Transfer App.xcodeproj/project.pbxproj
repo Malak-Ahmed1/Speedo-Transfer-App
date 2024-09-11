@@ -90,6 +90,8 @@
 		7CDB0D652C8B7CD7004117C1 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB0D642C8B7CD7004117C1 /* EditVC.swift */; };
 		7CDC4C3A2C88D2C0006E77F8 /* UIVC+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC4C392C88D2C0006E77F8 /* UIVC+Alert.swift */; };
 		7CE328E32C839922000AB319 /* ContainerPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE328E22C839922000AB319 /* ContainerPageVC.swift */; };
+		7CE778362C91CE18005C5A04 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778352C91CE18005C5A04 /* ProfilePresenter.swift */; };
+		7CE778382C91D83C005C5A04 /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE778372C91D83C005C5A04 /* ProfileInfoCell.swift */; };
 		92B024D32C90D46600171CEA /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024D22C90D46600171CEA /* LoginPresenter.swift */; };
 		92B024E02C90D58600171CEA /* FavouriteRecipient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024DE2C90D58500171CEA /* FavouriteRecipient+CoreDataProperties.swift */; };
 		92B024E12C90D58600171CEA /* FavouriteRecipient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B024DF2C90D58500171CEA /* FavouriteRecipient+CoreDataClass.swift */; };
@@ -204,6 +206,8 @@
 		7CDB0D642C8B7CD7004117C1 /* EditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		7CDC4C392C88D2C0006E77F8 /* UIVC+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Alert.swift"; sourceTree = "<group>"; };
 		7CE328E22C839922000AB319 /* ContainerPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerPageVC.swift; sourceTree = "<group>"; };
+		7CE778352C91CE18005C5A04 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		7CE778372C91D83C005C5A04 /* ProfileInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
 		7FAC409776E5E718E4D51EA6 /* Pods_Speedo_Transfer_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Speedo_Transfer_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B024D22C90D46600171CEA /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		92B024DE2C90D58500171CEA /* FavouriteRecipient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavouriteRecipient+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -395,6 +399,7 @@
 				7C0BE2EF2C8F2F860032626C /* ThirdStepPresenter.swift */,
 				92B024D22C90D46600171CEA /* LoginPresenter.swift */,
 				7C0BE2F12C8F32990032626C /* ContainerPagePresenter.swift */,
+				7CE778352C91CE18005C5A04 /* ProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -553,6 +558,7 @@
 				7CD883072C90A8400020E617 /* PointsManager.swift */,
 				7CD883092C90B8280020E617 /* User.swift */,
 				7CD8831B2C90F4270020E617 /* UserManager.swift */,
+				7CE778372C91D83C005C5A04 /* ProfileInfoCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 				7CBBC9322C805032005B90D5 /* ViewController.swift in Sources */,
 				7C9A656B2C8A1B6A009DFE5C /* LocalNotificationManager.swift in Sources */,
 				7C6870C92C8CD99000C54A12 /* NotificationCell.swift in Sources */,
+				7CE778382C91D83C005C5A04 /* ProfileInfoCell.swift in Sources */,
 				7CA2BAB92C83BE3D00774097 /* CustomStepControl.swift in Sources */,
 				7CD883082C90A8400020E617 /* PointsManager.swift in Sources */,
 				7C3AC3DE2C8B15E1004C4D2D /* HelpVC.swift in Sources */,
@@ -810,6 +817,7 @@
 				7CB4E13A2C8E72DE00C5AB04 /* TransactionsPresenter.swift in Sources */,
 				7CB4E13C2C8E767600C5AB04 /* OnboardingPresenter.swift in Sources */,
 				7CBBC92E2C805032005B90D5 /* AppDelegate.swift in Sources */,
+				7CE778362C91CE18005C5A04 /* ProfilePresenter.swift in Sources */,
 				7CB4E1312C8E0EB900C5AB04 /* FavouritesPresenter.swift in Sources */,
 				7CD883032C90973F0020E617 /* CustomProgressBar.swift in Sources */,
 				7CB4E12F2C8E01DC00C5AB04 /* NotificationPresenter.swift in Sources */,

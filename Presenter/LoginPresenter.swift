@@ -4,7 +4,7 @@ protocol LoginPresenterProtocol {
     func tryLogin(email: String?, password: String?)
 }
 
-class LoginPresenter {
+class LoginPresenter: LoginPresenterProtocol {
     weak var view: SignInVC!
     
     init(view: SignInVC) {
@@ -26,23 +26,14 @@ class LoginPresenter {
     }
     
     func isAuthenticated(email: String?, password: String?) -> Bool {
-        // Retrieve users from UserManager
-        let users = UserManager.shared.users
-        
-        // Check if user exists and password matches
-        for user in users {
-            if user.email == email && user.password == password {
-                UserManager.shared.currentUser = user
-                return true
-            }
+        // Check if the user exists and password matches
+        if UserManager.shared.loginUser(email: email!, password: password!) {
+            return true
         }
-        
         self.view.showMessage(title: "Login Failed", message: "Incorrect email or password.")
         return false
     }
-}
-
-extension LoginPresenter: LoginPresenterProtocol {
+    
     func tryLogin(email: String?, password: String?) {
         if self.isValidData(email: email, password: password) {
             if self.isAuthenticated(email: email, password: password) {

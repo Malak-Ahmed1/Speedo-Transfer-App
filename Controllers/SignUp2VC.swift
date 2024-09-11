@@ -77,8 +77,7 @@ class SignUp2VC: UIViewController, CountrySelectionDelegate {
 
 extension SignUp2VC {
     func showMessage(title: String, message: String) {
-        print("showMessage called with title: \(title) and message: \(message)")  // Debugging statement
-        self.showAlert(title: title, message: message, okHandler: nil, cancelHandler: nil)
+                self.showAlert(title: title, message: message, okHandler: nil, cancelHandler: nil)
     }
     
     func goToNextScreen(user: User?) {
@@ -86,6 +85,6 @@ extension SignUp2VC {
         let signInVC = sb.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
         signInVC.user = user
         signInVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(signInVC, animated: true)
+        present(signInVC, animated: true)
     }
 }

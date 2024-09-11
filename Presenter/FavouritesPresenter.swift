@@ -27,25 +27,29 @@ class FavouritesPresenter {
     var favArr: [FavouriteRecipient] = []
     
     var view: FavouritesView?
-    
-    init(view: FavouritesView) {
+    private var userEmail: String
+
+    init(view: FavouritesView, userEmail: String) {
         self.view = view
+        self.userEmail = userEmail
     }
     
 }
 
 extension FavouritesPresenter: FavouritesPresenterProtocol {
     func getFavourites() {
-        do {
-            self.favArr = try context.fetch(FavouriteRecipient.fetchRequest())
-            DispatchQueue.main.async { [weak self] in
-                self?.view?.displayFavourites()
+            let request: NSFetchRequest<FavouriteRecipient> = FavouriteRecipient.fetchRequest()
+            request.predicate = NSPredicate(format: "email == %@", userEmail)
+            
+            do {
+                self.favArr = try context.fetch(request)
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.displayFavourites()
+                }
+            } catch {
+                print("Error fetching favourites: \(error)")
             }
-        } catch {
-        
-                print("Error Fetching")
-            }
-    }
+        }
     
     func getFavouritesArr() -> [FavouriteRecipient] {
         return favArr

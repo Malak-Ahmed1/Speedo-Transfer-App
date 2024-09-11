@@ -34,11 +34,11 @@ class MoreVC: UIViewController, MoreView {
     func displayCells(with models: [MoreCellModel]) {
         moreTableView.reloadData()
     }
-
+    
     
     @IBAction func backBtnClicked(_ sender: Any) {
-            tabBarController?.selectedIndex = 0
-        }
+        tabBarController?.selectedIndex = 0
+    }
     
 }
 
@@ -58,28 +58,41 @@ extension MoreVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-              if let viewControllerToPresent = presenter.didSelectCell(at: indexPath) {
-                  if indexPath.row != 3 {  // Not help sheet
-                      viewControllerToPresent.modalPresentationStyle = .fullScreen
-                      navigationController?.pushViewController(viewControllerToPresent, animated: true)
-                      navigationItem.title = ""
-                  } else {
-                      viewControllerToPresent.modalPresentationStyle = .pageSheet
-                      if let sheet = viewControllerToPresent.sheetPresentationController {
-                          sheet.detents = [.medium()]
-                          sheet.preferredCornerRadius = 50
-                      }
-                      present(viewControllerToPresent, animated: true)
-                  }
-              }
-              tableView.deselectRow(at: indexPath, animated: true)
-          }
+        if let viewControllerToPresent = presenter.didSelectCell(at: indexPath) {
+            if indexPath.row == 3 {
+                viewControllerToPresent.modalPresentationStyle = .pageSheet
+                if let sheet = viewControllerToPresent.sheetPresentationController {
+                    sheet.detents = [.medium()]
+                    sheet.preferredCornerRadius = 50
+                }
+                present(viewControllerToPresent, animated: true)
+            } else if indexPath.row == 4 {
+                self.showAlert(title: "Sure?", message: "Are you sure you want to log out?", okHandler: {
+                    viewControllerToPresent.modalPresentationStyle = .fullScreen
+                    self.present(viewControllerToPresent, animated: true)
+                }, cancelHandler: {
+                    self.dismiss(animated: true)
+                })
+               
+                
+            } else {
+                viewControllerToPresent.modalPresentationStyle = .fullScreen
+                navigationController?.pushViewController(viewControllerToPresent, animated: true)
+                navigationItem.title = ""
+            }
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+    }
+    
     
 }
+

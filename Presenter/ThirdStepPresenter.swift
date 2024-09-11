@@ -42,7 +42,7 @@ extension ThirdStepPresenter: ThirdStepProtocol {
         let newFavRecipient = FavouriteRecipient(context: context)
         newFavRecipient.userName = userName
         newFavRecipient.accountNumber = accountNumber
-        
+        newFavRecipient.email = UserManager.shared.currentUser?.email
         do {
             try context.save()
             view?.showSuccessMessage("Recipient added to favorites.")

@@ -17,16 +17,25 @@ class HomePresenter: HomePresenterProtocol {
     }
     
     func fetchRecentTransactions() {
+        guard let currentUserEmail = UserManager.shared.currentUser?.email else {
+            print("No current user found")
+            return
+        }
+
         do {
-            // Fetch a limited number of recent transactions (e.g., 5)
-            self.recentTransactionArr = try transactionService.fetchRecentTransactions(limit: 5)
+            // Fetch recent transactions
+            self.recentTransactionArr = try transactionService.fetchRecentTransactions(forUser: currentUserEmail, limit: 5)
+            
+            print("Fetched recent transactions: \(self.recentTransactionArr)") // Debug print
+
             DispatchQueue.main.async { [weak self] in
                 self?.view?.displayTransactions(transactions: self!.recentTransactionArr)
             }
         } catch {
-            print("Error Fetching Recent Transactions")
+            print("Error fetching recent transactions for user: \(currentUserEmail)")
         }
     }
+
     
     func getTransaction(at index: Int) -> Transaction? {
         guard index >= 0 && index < recentTransactionArr.count else { return nil }

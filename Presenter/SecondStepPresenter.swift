@@ -1,21 +1,11 @@
-//
-//  SecondStepPresenter.swift
-//  Speedo Transfer App
-//
-//  Created by 1234 on 09/09/2024.
-//
-
 import Foundation
 import UIKit
 import CoreData
 
-protocol SecondStepProtocol: AnyObject{
-    
-    func confirmTransaction(recipientName: String?, firstAmount: String?)
-    
-    
-}
 
+protocol SecondStepProtocol: AnyObject {
+    func confirmTransaction(recipientName: String?, firstAmount: String?)
+}
 
 class SecondStepPresenter {
     private weak var view: SecondStepView?
@@ -26,6 +16,16 @@ class SecondStepPresenter {
         self.context = context
     }
 
+    // Save Core Data context
+    private func saveContext() {
+        do {
+            try context.save()
+        } catch {
+            view?.displayError("Error saving context: \(error.localizedDescription)")
+        }
+    }
+
+    // Add notification for the transaction
     private func addNotification(for transaction: Transaction) {
         let newNotification = NotificationEntity(context: context)
         if transaction.status == "Failed" {
@@ -34,20 +34,19 @@ class SecondStepPresenter {
             newNotification.message = "You sent \(transaction.amount) to \(transaction.recipientName ?? "someone")."
         }
         newNotification.timestamp = Date()
-
-        do {
-            try context.save()
-        } catch {
-            view?.displayError("Error saving notification: \(error)")
-        }
+        newNotification.email = UserManager.shared.currentUser?.email
+        saveContext() // Save after adding the notification
     }
 
+    // Increment points
     private func incrementPoints() {
         PointsManager.shared.incrementPoints(by: 500)
+        
     }
 }
 
 extension SecondStepPresenter: SecondStepProtocol {
+    // Confirm and process a transaction
     func confirmTransaction(recipientName: String?, firstAmount: String?) {
         guard let recipient = recipientName, !recipient.isEmpty else {
             view?.displayError("Recipient name is missing.")
@@ -60,11 +59,13 @@ extension SecondStepPresenter: SecondStepProtocol {
             return
         }
 
+        // Create a new transaction
         let newTransaction = Transaction(context: context)
         newTransaction.recipientName = recipient
         newTransaction.visaInfo = "Visa . Master Card . 1234"
         newTransaction.status = "Successful"
-        newTransaction.amount = amount // Set the converted amount
+        newTransaction.amount = amount
+        newTransaction.email = UserManager.shared.currentUser?.email
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy HH:mm"
@@ -73,13 +74,20 @@ extension SecondStepPresenter: SecondStepProtocol {
         do {
             try context.save()
             view?.showSuccessMessage("Transaction successfully saved.")
+            UserManager.shared.currentUser?.balance! -= amount
             incrementPoints()
         } catch {
-            view?.displayError("Error saving transaction: \(error)")
+            view?.displayError("Error saving transaction: \(error.localizedDescription)")
         }
 
+        // Add a notification for the transaction
         addNotification(for: newTransaction)
-        LocalNotificationManager.shared.scheduleNotification(title: "Notification", body: "Successful Transfer", triggerDate: Date().addingTimeInterval(3))
+
+        // Schedule a local notification
+        LocalNotificationManager.shared.scheduleNotification(
+            title: "Notification",
+            body: "Successful Transfer",
+            triggerDate: Date().addingTimeInterval(3)
+        )
     }
 }
-

@@ -3,9 +3,11 @@
 import Foundation
 
 struct User: Codable {
-    let name: String?
+    var name: String?
     let email: String?
-    let password: String?
+    var password: String?
     let country: String?
     let birthDate: String?
+    var balance: Double?
+    var points: Int?
 }

@@ -21,5 +21,6 @@ extension Transaction {
     @NSManaged public var date: String?
     @NSManaged public var amount: Double
     @NSManaged public var status: String?
+    @NSManaged public var email: String?
 
 }

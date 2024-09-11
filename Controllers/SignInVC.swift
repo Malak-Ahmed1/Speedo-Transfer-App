@@ -6,7 +6,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var EmailIcon: UIImageView!
     @IBOutlet weak var eyeIcon: UIImageView!
     
-    var user: User?  
+    var user: User?
     var loginPresenterProtocol: LoginPresenterProtocol!
     
     override func viewDidLoad() {
@@ -22,17 +22,20 @@ class SignInVC: UIViewController {
     
     @IBAction func SignUpBtn(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Main2", bundle: nil)
-        let signUpVC = sb.instantiateViewController(withIdentifier: "SignUpVC")
-        navigationController?.pushViewController(signUpVC, animated: true)
+        let signUpVC = sb.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        signUpVC.modalPresentationStyle = .fullScreen
+        present(signUpVC, animated: true)
     }
     
     func goToNextScreen() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let homeVC = sb.instantiateViewController(withIdentifier: "HomeVC")
-        homeVC.modalPresentationStyle = .fullScreen
-        self.present(homeVC, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+       
+        if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
+            tabBarController.modalPresentationStyle = .fullScreen
+            UIApplication.shared.windows.first?.rootViewController = tabBarController
+        }
     }
-
 }
 
 extension SignInVC {
@@ -40,4 +43,3 @@ extension SignInVC {
         self.showAlert(title: title, message: message, okHandler: nil, cancelHandler: nil)
     }
 }
-
