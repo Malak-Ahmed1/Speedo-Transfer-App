@@ -1,17 +1,9 @@
-//
-//  ChangePasswordPresenter.swift
-//  Speedo Transfer App
-//
-//  Created by mariam labib on 11/09/2024.
-//
-
 import Foundation
 
 protocol ChangePasswordView: AnyObject {
-    func showSuccessMessage(_ message: String)
-    func showErrorMessage(_ message: String)
+    func showMessage(title: String ,message: String)
+    
 }
-
 class ChangePasswordPresenter {
     weak var view: ChangePasswordView?
 
@@ -21,21 +13,34 @@ class ChangePasswordPresenter {
 
     func saveNewPassword(currentPassword: String?, newPassword: String?) {
         guard let currentPassword = currentPassword, !currentPassword.isEmpty else {
-            view?.showErrorMessage("Please enter the current password.")
+            view?.showMessage(title: "Sorry", message: "Please enter the current password.")
             return
         }
         
         guard let newPassword = newPassword, !newPassword.isEmpty else {
-            view?.showErrorMessage("Please enter a new password.")
+            view?.showMessage(title: "Sorry", message: "Please enter a new password.")
             return
         }
 
-        // Simulate password change logic
-        if currentPassword == "123456" { // For example, the old password is hardcoded here
-            // Assume password was changed successfully
-            view?.showSuccessMessage("Password changed successfully.")
-        } else {
-            view?.showErrorMessage("Current password is incorrect.")
+        // Check if new password is strong
+        if !isStrongPassword(newPassword) {
+            view?.showMessage(title: "Sorry", message: "Password must be at least 8 characters long, contain uppercase and lowercase letters, a number, and a special character.")
+            return
         }
+
+        if currentPassword == UserManager.shared.currentUser?.password {
+            // Update the user's password
+            UserManager.shared.currentUser?.password = newPassword
+            UserManager.shared.saveUsersToUserDefaults() // Save updated user data
+            view?.showMessage(title: "Success", message: "Password changed successfully.")
+        } else {
+            view?.showMessage(title: "Sorry", message: "Current password is incorrect.")
+        }
+    }
+
+    private func isStrongPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+=-]).{8,}$"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordTest.evaluate(with: password)
     }
 }

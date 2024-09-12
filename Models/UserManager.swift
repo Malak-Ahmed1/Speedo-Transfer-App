@@ -68,7 +68,7 @@ class UserManager {
         }
     }
 
-    private func saveUsersToUserDefaults() {
+     func saveUsersToUserDefaults() {
         let usersDicts = users.map { user -> [String: Any] in
             return [
                 "name": user.name ?? "",

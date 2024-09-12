@@ -1811,7 +1811,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Rewards" id="05z-sx-jfB"/>
+                    <tabBarItem key="tabBarItem" title="Rewards" selectedImage="Image-8" id="05z-sx-jfB"/>
                     <connections>
                         <outlet property="earnedPointsLabel" destination="3ez-d1-ty8" id="n66-hw-h2s"/>
                         <outlet property="progressBar" destination="W0H-jB-4Hb" id="HDi-3M-aKQ"/>
@@ -2209,6 +2209,7 @@
         <image name="Image-5" width="25.5" height="2"/>
         <image name="Image-6" width="24" height="24"/>
         <image name="Image-7" width="80" height="90"/>
+        <image name="Image-8" width="25" height="25"/>
         <image name="MoreSelected" width="10.5" height="10"/>
         <image name="No Internet" width="54.5" height="55"/>
         <image name="Notifications" width="16" height="16.5"/>

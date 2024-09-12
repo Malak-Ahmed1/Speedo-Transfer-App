@@ -24,6 +24,7 @@ class HomeVC: UIViewController, HomeView {
         super.viewWillAppear(animated)
         presenter.fetchRecentTransactions()
         self.recentTransactionsTableView.reloadData()
+        setUpUI()
     }
     
     private func setUpTable() {

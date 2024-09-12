@@ -53,20 +53,22 @@ class SettingsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
            case 0:
                cell.firstLabel.text = "Change password"
                cell.secondLabel.text = "Change password"
-               cell.settingsImage.image = UIImage(named: "lock")
-               cell.actionBtn.setTitle(">", for: .normal)
+               cell.settingsImage.image = UIImage(named: "lockG")
+               cell.actionBtn.setTitle("", for: .normal)
            case 1:
                cell.firstLabel.text = "Edit Profile"
                cell.secondLabel.text = "Change your information"
-               cell.settingsImage.image = UIImage(named: "edit1")
-               cell.actionBtn.setTitle(">", for: .normal)
+               cell.settingsImage.image = UIImage(named: "editG")
+               cell.actionBtn.setTitle("", for: .normal)
            default:
                break
            }
            
            return cell
        }
-       
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
        // MARK: - Table View Delegate Methods (optional)
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

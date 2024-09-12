@@ -14,30 +14,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        UNUserNotificationCenter.current().delegate = self
-        LocalNotificationManager.shared.requestNotificationAuthorization()
-//        let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let storyboard2 = UIStoryboard(name: "Main2", bundle: nil)
-//
-//            
-//            let initialVC: UIViewController
-//            
-//            if hasCompletedOnboarding {
-//                initialVC = storyboard2.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
-//            } else {
-//                initialVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingVC
-//            }
-//            
-//            window = UIWindow(frame: UIScreen.main.bounds)
-//            window?.rootViewController = initialVC
-//            window?.makeKeyAndVisible()
-        
+    func application(_ application: UIApplication,
+                        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        return true
-    }
+           // Request notification authorization
+           UNUserNotificationCenter.current().delegate = self
+           LocalNotificationManager.shared.requestNotificationAuthorization()
+
+           // Create a new window
+           window = UIWindow(frame: UIScreen.main.bounds)
+
+           let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+
+           let storyboard = UIStoryboard(name: "Main2", bundle: nil)
+           if hasSeenOnboarding {
+               // Show the SignUpVC
+               let signUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+               window?.rootViewController = signUpVC
+           } else {
+               // Show the OnboardingVC
+               let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as! OnboardingVC
+               window?.rootViewController = onboardingVC
+           }
+
+           window?.makeKeyAndVisible()
+           return true
+       }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner, .sound])

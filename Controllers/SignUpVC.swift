@@ -15,6 +15,13 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = RegistrationPresenter(view: self)
+        let tapGestureCurrentPassword = UITapGestureRecognizer(target: self, action: #selector(toggleCurrentPasswordVisibility))
+        eyeIcon.isUserInteractionEnabled = true
+        eyeIcon.addGestureRecognizer(tapGestureCurrentPassword)
+
+        let tapGestureNewPassword = UITapGestureRecognizer(target: self, action: #selector(toggleNewPasswordVisibility))
+        eyeIcon2.isUserInteractionEnabled = true
+        eyeIcon2.addGestureRecognizer(tapGestureNewPassword)
     }
     
     @IBAction func SignUpBtn(_ sender: UIButton) {
@@ -29,7 +36,7 @@ class SignUpVC: UIViewController {
     @IBAction func SignInBtn(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Main2", bundle: nil)
         let signInVC = sb.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
-        signInVC.modalPresentationStyle = .fullScreen  // Full-screen
+        signInVC.modalPresentationStyle = .fullScreen  
         present(signInVC, animated: true)
     }
     
@@ -41,6 +48,19 @@ class SignUpVC: UIViewController {
         present(signUp2VC, animated: true)
         
     }
+    @objc private func toggleCurrentPasswordVisibility() {
+            PasswordTextField.isSecureTextEntry.toggle()
+            updateEyeIcon(eyeIcon, isSecure: PasswordTextField.isSecureTextEntry)
+        }
+
+    @objc private func toggleNewPasswordVisibility() {
+            ConfirmPassTextField.isSecureTextEntry.toggle()
+            updateEyeIcon(eyeIcon2, isSecure: ConfirmPassTextField.isSecureTextEntry)
+        }
+    private func updateEyeIcon(_ eyeIcon: UIImageView, isSecure: Bool) {
+            let imageName = isSecure ? "eye" : "eye"
+            eyeIcon.image = UIImage(named: imageName)
+        }
 }
 
 extension SignUpVC {

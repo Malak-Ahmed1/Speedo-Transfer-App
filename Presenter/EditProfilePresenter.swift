@@ -1,16 +1,8 @@
-//
-//  EditProfilePresenter.swift
-//  Speedo Transfer App
-//
-//  Created by mariam labib on 11/09/2024.
-//
-
 import Foundation
 
 protocol EditProfileView: AnyObject {
     func updateUserInfo(fullName: String, email: String, country: String, birthDate: String)
-    func showSuccessMessage(_ message: String)
-    func showErrorMessage(_ message: String)
+    func showMessage(title: String, message: String)
 }
 
 class EditProfilePresenter {
@@ -21,56 +13,43 @@ class EditProfilePresenter {
         self.view = view
     }
     
-    func viewDidLoad() {
-        // Load user data from UserDefaults
-        if let user = retrieveUserFromUserDefaults() {
-            view?.updateUserInfo(fullName: user.name ?? "", email: user.email ?? "", country: user.country ?? "", birthDate: user.birthDate ?? "")
-        }
-    }
     
     func saveChanges(fullName: String?, email: String?, country: String?, birthDate: String?) {
         guard let fullName = fullName, !fullName.isEmpty,
-              let email = email, !email.isEmpty,
+              let email = email, isValidEmail(email),
               let country = country, !country.isEmpty,
-              let birthDate = birthDate, !birthDate.isEmpty else {
-            view?.showErrorMessage("All fields must be filled.")
+              let birthDate = birthDate, isValidAge(birthDate) else {
+            view?.showMessage(title: "Sorry", message: "Please ensure all fields are valid and you are at least 16 years old.")
             return
         }
         
-        // Save to UserDefaults (or another persistent storage)
-        if var user = retrieveUserFromUserDefaults() {
-            user.name = fullName
-            user.email = email
-            user.country = country
-            user.birthDate = birthDate
-            saveUserToUserDefaults(user)
-            
-            view?.showSuccessMessage("Profile updated successfully.")
-        } else {
-            view?.showErrorMessage("Failed to retrieve user information.")
-        }
+        UserManager.shared.currentUser?.name = fullName
+        UserManager.shared.currentUser?.email = email
+        UserManager.shared.currentUser?.country = country
+        UserManager.shared.currentUser?.birthDate = birthDate
+        UserManager.shared.saveUsersToUserDefaults()
+        view?.showMessage(title: "Success", message: "Data Updated!")
     }
     
-    private func retrieveUserFromUserDefaults() -> User? {
-        let defaults = UserDefaults.standard
-        if let savedUserData = defaults.data(forKey: "savedUser") {
-            do {
-                let decodedUser = try JSONDecoder().decode(User.self, from: savedUserData)
-                return decodedUser
-            } catch {
-                print("Failed to decode user: \(error)")
-            }
-        }
-        return nil
+        
+
+    
+    // Email validation
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
     
-    private func saveUserToUserDefaults(_ user: User) {
-        let defaults = UserDefaults.standard
-        do {
-            let encodedData = try JSONEncoder().encode(user)
-            defaults.set(encodedData, forKey: "savedUser")
-        } catch {
-            print("Failed to encode user: \(error)")
+    // Age validation
+    private func isValidAge(_ birthDate: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy" // Ensure this matches your BirthDateTextField format
+        if let date = dateFormatter.date(from: birthDate) {
+            let calendar = Calendar.current
+            let age = calendar.dateComponents([.year], from: date, to: Date()).year
+            return (age ?? 0) >= 16
         }
+        return false
     }
 }

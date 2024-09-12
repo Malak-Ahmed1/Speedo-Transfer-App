@@ -34,32 +34,21 @@ class ChangePasswordVC: UIViewController, ChangePasswordView {
         presenter?.saveNewPassword(currentPassword: currentPassword, newPassword: newPassword)
     }
     
-    func showSuccessMessage(_ message: String) {
-        let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-        }
-
-        func showErrorMessage(_ message: String) {
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
+    func showMessage(title: String, message: String) {
+        self.showAlert(title: title, message: message, okHandler: nil, cancelHandler: nil)
+    }
     @objc private func toggleCurrentPasswordVisibility() {
             CurrentPasswordTextField.isSecureTextEntry.toggle()
-            // Update eye icon image based on visibility state
             updateEyeIcon(eyeIcon, isSecure: CurrentPasswordTextField.isSecureTextEntry)
         }
 
     @objc private func toggleNewPasswordVisibility() {
             NewPasswordTextField.isSecureTextEntry.toggle()
-            // Update eye icon image based on visibility state
             updateEyeIcon(eyeIcon2, isSecure: NewPasswordTextField.isSecureTextEntry)
         }
 
     private func updateEyeIcon(_ eyeIcon: UIImageView, isSecure: Bool) {
-            // Update the image based on whether the text field is secure or not
-            let imageName = isSecure ? "eyeClosed" : "eyeOpen"
+            let imageName = isSecure ? "eye" : "eye"
             eyeIcon.image = UIImage(named: imageName)
         }
 }

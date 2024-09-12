@@ -14,6 +14,9 @@ class SignInVC: UIViewController {
         
         // Initialize the presenter
         loginPresenterProtocol = LoginPresenter(view: self)
+        let tapGestureCurrentPassword = UITapGestureRecognizer(target: self, action: #selector(toggleNewPasswordVisibility))
+        eyeIcon.isUserInteractionEnabled = true
+        eyeIcon.addGestureRecognizer(tapGestureCurrentPassword)
     }
     
     @IBAction func SignInBtn(_ sender: UIButton) {
@@ -36,6 +39,15 @@ class SignInVC: UIViewController {
             UIApplication.shared.windows.first?.rootViewController = tabBarController
         }
     }
+    @objc private func toggleNewPasswordVisibility() {
+            PasswordTextField.isSecureTextEntry.toggle()
+            updateEyeIcon(eyeIcon, isSecure: PasswordTextField.isSecureTextEntry)
+        }
+
+    private func updateEyeIcon(_ eyeIcon: UIImageView, isSecure: Bool) {
+            let imageName = isSecure ? "eye" : "eye"
+            eyeIcon.image = UIImage(named: imageName)
+        }
 }
 
 extension SignInVC {

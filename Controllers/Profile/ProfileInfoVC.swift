@@ -15,7 +15,10 @@ class ProfileInfoVC: UIViewController {
         
         viewModel.loadUserInfo()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadUserInfo()
+    }
     func displayUserInfo(userInfo: [(title: String, info: String)]) {
         self.userInfo = userInfo
         tableView.reloadData()

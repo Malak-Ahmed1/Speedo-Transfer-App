@@ -2,11 +2,13 @@
 
 import UIKit
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileView {
+    
+    
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var nameIcon: UIImageView!
     
+    @IBOutlet weak var userNameChar: UILabel!
     var presenter: ProfilePresenter!
     
     override func viewDidLoad() {
@@ -15,11 +17,26 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, P
         tableView.dataSource = self
         presenter = ProfilePresenter(view: self)
         presenter.viewDidLoad()
+        displayUserName((UserManager.shared.currentUser?.name)!)
+        updateUserInitials(from: (UserManager.shared.currentUser?.name)!)
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displayUserName((UserManager.shared.currentUser?.name)!)
+        updateUserInitials(from: (UserManager.shared.currentUser?.name)!)
+    }
     func displayUserName(_ name: String) {
         nameLabel.text = name
     }
+    func updateUserInitials(from name: String) {
+        let components = name.split(separator: " ")
+        
+        let initials = components.map { $0.prefix(1).uppercased() }.joined()
+        
+        userNameChar.text = initials
+    }
+
       
     func updateTableView() {
         tableView.reloadData()
@@ -27,7 +44,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, P
     
     // TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4 // You have 4 cells
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,23 +54,23 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, P
         case 0:
             cell.firstLabel.text = "Personal information"
             cell.secondLabel.text = "Your information"
-            cell.profileImageView.image = UIImage(named: "person")
-            cell.actionBtn.setTitle(">", for: .normal)
+            cell.profileImageView.image = UIImage(named: "personG")
+            cell.actionBtn.setTitle("", for: .normal)
         case 1:
             cell.firstLabel.text = "Setting"
             cell.secondLabel.text = "Your information"
-            cell.profileImageView.image = UIImage(named: "settingss")
-            cell.actionBtn.setTitle(">", for: .normal)
+            cell.profileImageView.image = UIImage(named: "settingG")
+            cell.actionBtn.setTitle("", for: .normal)
         case 2:
             cell.firstLabel.text = "Payment history"
             cell.secondLabel.text = "view your transactions"
-            cell.profileImageView.image = UIImage(named: "history")
-            cell.actionBtn.setTitle(">", for: .normal)
+            cell.profileImageView.image = UIImage(named: "payG")
+            cell.actionBtn.setTitle("", for: .normal)
         case 3:
             cell.firstLabel.text = "My Favourite list"
             cell.secondLabel.text = "view your favourites"
-            cell.profileImageView.image = UIImage(named: "fav")
-            cell.actionBtn.setTitle(">", for: .normal)
+            cell.profileImageView.image = UIImage(named: "favG")
+            cell.actionBtn.setTitle("", for: .normal)
         default:
             break
         }
@@ -83,14 +100,14 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, P
     
     // Navigation Methods
     func navigateToPersonalInfo() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main2", bundle: nil)
         if let personalInfoVC = storyboard.instantiateViewController(withIdentifier: "ProfileInfoVC") as? ProfileInfoVC {
             navigationController?.pushViewController(personalInfoVC, animated: true)
         }
     }
 
     func navigateToSettings() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main2", bundle: nil)
         if let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as? SettingsVC {
             navigationController?.pushViewController(settingsVC, animated: true)
         }
