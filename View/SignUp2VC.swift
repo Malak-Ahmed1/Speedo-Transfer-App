@@ -64,8 +64,8 @@ class SignUp2VC: UIViewController, CountrySelectionDelegate {
     @IBAction func SignInBtn(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Main2", bundle: nil)
         let signInVC = sb.instantiateViewController(withIdentifier: "SignInVC") as! SignInVC
-        signInVC.modalPresentationStyle = .fullScreen  // Full-screen presentation
-        navigationController?.pushViewController(signInVC, animated: true)
+        signInVC.modalPresentationStyle = .fullScreen 
+        present(signInVC, animated: true)
     }
 
     // MARK: - CountrySelectionDelegate
