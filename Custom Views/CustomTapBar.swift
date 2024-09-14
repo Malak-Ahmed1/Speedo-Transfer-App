@@ -27,7 +27,7 @@ class CustomTabBar: UITabBarController {
                     
                     let selectedAttributes: [NSAttributedString.Key: Any] = [
                         .font: UIFont.systemFont(ofSize: 12),
-                        .foregroundColor: UIColor.customPink // Customize color as needed
+                        .foregroundColor: UIColor.customPink
                     ]
                     
                     item.setTitleTextAttributes(attributes, for: .normal)
@@ -36,7 +36,6 @@ class CustomTabBar: UITabBarController {
             }
         }
         
-        // Set tab bar border radius
         tabBar.layer.cornerRadius = tabBar.bounds.height / 2
         tabBar.clipsToBounds = true
     }

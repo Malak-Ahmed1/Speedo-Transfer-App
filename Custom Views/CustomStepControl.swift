@@ -63,11 +63,9 @@ class CustomStepControl: UIPageControl {
         let trailerHeight: CGFloat = 24
         let spacing: CGFloat = 8
         
-        // Calculate the total width required
         let totalWidth = CGFloat(circleImages.count) * circleSize + CGFloat(trailers.count) * trailerWidth + CGFloat(circleImages.count - 1) * spacing
         
-        // Start layout from the center of the control
-        var currentX = (self.bounds.width - totalWidth) / 2
+        var currentX = (self.bounds.width - 30 - totalWidth) / 2
         
         for i in 0..<circleImages.count {
             let circleImageView = circleImages[i]

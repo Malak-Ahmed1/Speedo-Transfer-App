@@ -18,7 +18,6 @@
 		7C2C084B2C8F6871004650B9 /* String+Trimmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2C084A2C8F6871004650B9 /* String+Trimmed.swift */; };
 		7C381FF62C9261CC00AA8E3F /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C381FF52C9261CB00AA8E3F /* Main2.storyboard */; };
 		7C3AC3D72C8B11D7004C4D2D /* FavouritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */; };
-		7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */; };
 		7C3AC3DA2C8B11FB004C4D2D /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */; };
 		7C3AC3DC2C8B12EA004C4D2D /* ProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3DB2C8B12EA004C4D2D /* ProfileInfoVC.swift */; };
 		7C3AC3DE2C8B15E1004C4D2D /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AC3DD2C8B15E1004C4D2D /* HelpVC.swift */; };
@@ -53,6 +52,7 @@
 		7CA78DDE2C8C71A200316F3D /* TransactionsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA78DDC2C8C71A200316F3D /* TransactionsListCell.swift */; };
 		7CA78DDF2C8C71A200316F3D /* TransactionsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CA78DDD2C8C71A200316F3D /* TransactionsListCell.xib */; };
 		7CAC47702C826AC900439771 /* CustomPinkColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC476F2C826AC900439771 /* CustomPinkColor.swift */; };
+		7CB1C1642C95E9C6004E96C0 /* FavouritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB1C1632C95E9C6004E96C0 /* FavouritesCell.xib */; };
 		7CB4E12D2C8DE3BD00C5AB04 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4E12C2C8DE3BD00C5AB04 /* HomePresenter.swift */; };
 		7CB4E12F2C8E01DC00C5AB04 /* NotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4E12E2C8E01DC00C5AB04 /* NotificationPresenter.swift */; };
 		7CB4E1312C8E0EB900C5AB04 /* FavouritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4E1302C8E0EB900C5AB04 /* FavouritesPresenter.swift */; };
@@ -135,7 +135,6 @@
 		7C2C084A2C8F6871004650B9 /* String+Trimmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimmed.swift"; sourceTree = "<group>"; };
 		7C381FF52C9261CB00AA8E3F /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main2.storyboard; path = "../../../Downloads/Speedo Transfer App/Speedo Transfer App/Main2.storyboard"; sourceTree = "<group>"; };
 		7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCell.swift; sourceTree = "<group>"; };
-		7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCell.xib; sourceTree = "<group>"; };
 		7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 		7C3AC3DB2C8B12EA004C4D2D /* ProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoVC.swift; sourceTree = "<group>"; };
 		7C3AC3DD2C8B15E1004C4D2D /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
@@ -171,6 +170,7 @@
 		7CA78DDC2C8C71A200316F3D /* TransactionsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListCell.swift; sourceTree = "<group>"; };
 		7CA78DDD2C8C71A200316F3D /* TransactionsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsListCell.xib; sourceTree = "<group>"; };
 		7CAC476F2C826AC900439771 /* CustomPinkColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinkColor.swift; sourceTree = "<group>"; };
+		7CB1C1632C95E9C6004E96C0 /* FavouritesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouritesCell.xib; sourceTree = "<group>"; };
 		7CB4E12C2C8DE3BD00C5AB04 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		7CB4E12E2C8E01DC00C5AB04 /* NotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresenter.swift; sourceTree = "<group>"; };
 		7CB4E1302C8E0EB900C5AB04 /* FavouritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPresenter.swift; sourceTree = "<group>"; };
@@ -372,12 +372,12 @@
 		7CA4738E2C8335ED00D0EDE3 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				7CB1C1632C95E9C6004E96C0 /* FavouritesCell.xib */,
 				7CA4738F2C8335FE00D0EDE3 /* MoreVC.swift */,
 				7C9A656C2C8A3212009DFE5C /* MoreTableCell.swift */,
 				7C9A656D2C8A3212009DFE5C /* MoreTableCell.xib */,
 				7C3AC3DD2C8B15E1004C4D2D /* HelpVC.swift */,
 				7C3AC3D52C8B11D7004C4D2D /* FavouritesCell.swift */,
-				7C3AC3D62C8B11D7004C4D2D /* FavouritesCell.xib */,
 				7C3AC3D92C8B11FB004C4D2D /* FavouritesVC.swift */,
 				7CDB0D642C8B7CD7004117C1 /* EditVC.swift */,
 			);
@@ -438,7 +438,7 @@
 				7CAC476E2C826A8400439771 /* Extensions */,
 				7CBBC9752C806163005B90D5 /* Custom Views */,
 				7CBBC9702C805434005B90D5 /* Models */,
-				7CBBC96F2C80541F005B90D5 /* Controllers */,
+				7CBBC96F2C80541F005B90D5 /* View */,
 				7CBBC9642C80514B005B90D5 /* Fonts */,
 				7CBBC92C2C805032005B90D5 /* Speedo Transfer App */,
 				7CBBC9432C80503A005B90D5 /* Speedo Transfer AppTests */,
@@ -536,7 +536,7 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		7CBBC96F2C80541F005B90D5 /* Controllers */ = {
+		7CBBC96F2C80541F005B90D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				7CD0E03A2C92DCED00D5488E /* Profile */,
@@ -550,7 +550,7 @@
 				7CA1400F2C82253A0018232D /* Error */,
 				7C3CFAB12C81C767003739CB /* Onboarding */,
 			);
-			path = Controllers;
+			path = View;
 			sourceTree = "<group>";
 		};
 		7CBBC9702C805434005B90D5 /* Models */ = {
@@ -739,11 +739,11 @@
 				7CBBC93A2C805038005B90D5 /* LaunchScreen.storyboard in Resources */,
 				7C0BE2F72C8F37040032626C /* Main.storyboard in Resources */,
 				7C381FF62C9261CC00AA8E3F /* Main2.storyboard in Resources */,
-				7C3AC3D82C8B11D7004C4D2D /* FavouritesCell.xib in Resources */,
 				7C9E3A242C8749C500F304D3 /* FavouriteListCell.xib in Resources */,
 				7CA78DDF2C8C71A200316F3D /* TransactionsListCell.xib in Resources */,
 				7CD0945B2C8FB9C400CD341C /* NotificationCell.xib in Resources */,
 				7CBBC9372C805038005B90D5 /* Assets.xcassets in Resources */,
+				7CB1C1642C95E9C6004E96C0 /* FavouritesCell.xib in Resources */,
 				7C9A656F2C8A3212009DFE5C /* MoreTableCell.xib in Resources */,
 				7C9DC6592C848B880095E8C5 /* RecentTransactionCell.xib in Resources */,
 			);
@@ -1068,7 +1068,7 @@
 				INFOPLIST_FILE = "Speedo Transfer App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main2;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1096,7 +1096,7 @@
 				INFOPLIST_FILE = "Speedo Transfer App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main2;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
