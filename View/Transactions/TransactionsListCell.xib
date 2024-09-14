@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionsListCell" rowHeight="152" id="YMI-9n-W1r" customClass="TransactionsListCell" customModule="Speedo_Transfer_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="152"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YMI-9n-W1r" id="QVt-TL-tGp" customClass="FavouriteListCell" customModule="Speedo_Transfer_App" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="398" height="152"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-X9-BOx">
+                        <rect key="frame" x="4" y="15.5" width="390" height="121"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="121" id="ebX-zq-RfF"/>
+                            <constraint firstAttribute="width" constant="390" id="vqh-eq-F2W"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Qbz-tO-gGk">
+                        <rect key="frame" x="4" y="16" width="390" height="105"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today 11:00 - Received" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmE-jS-MdY">
+                                <rect key="frame" x="70" y="51" width="131" height="15"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <color key="textColor" red="0.53725490200000003" green="0.53333333329999999" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500EGP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k42-Bg-RSE">
+                                <rect key="frame" x="73" y="85.5" width="62" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                <color key="textColor" red="0.52941176469999995" green="0.1176470588" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="go" translatesAutoresizingMaskIntoConstraints="NO" id="iPr-Nk-8ml">
+                                <rect key="frame" x="358" y="16" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Swb-YZ-a9E"/>
+                                    <constraint firstAttribute="height" constant="24" id="faZ-Bk-AIV"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUU-Ta-fzD">
+                                <rect key="frame" x="310" y="50" width="72" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successful" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0X0-xa-0x4">
+                                        <rect key="frame" x="9.5" y="3.5" width="53" height="13"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                        <color key="textColor" red="0.066666666669999999" green="0.54117647059999996" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.95294117649999999" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0X0-xa-0x4" firstAttribute="centerY" secondItem="hUU-Ta-fzD" secondAttribute="centerY" id="CyV-2a-xIF"/>
+                                    <constraint firstAttribute="width" constant="72" id="eOo-Dj-q5t"/>
+                                    <constraint firstAttribute="height" constant="20" id="hbC-WH-Oo0"/>
+                                    <constraint firstItem="0X0-xa-0x4" firstAttribute="centerX" secondItem="hUU-Ta-fzD" secondAttribute="centerX" id="qm1-Di-AEI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.view.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmed Mohammed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQE-LP-FFs">
+                                <rect key="frame" x="70" y="16" width="131" height="17"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
+                                <color key="textColor" red="0.14117647059999999" green="0.1333333333" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visaicon" translatesAutoresizingMaskIntoConstraints="NO" id="lgq-vy-zKc">
+                                <rect key="frame" x="4" y="16" width="57" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="dOm-Uu-qBX"/>
+                                    <constraint firstAttribute="height" constant="54" id="vOw-rg-Ffk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visa . Mater Card . 1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOS-42-gsY">
+                                <rect key="frame" x="68" y="36" width="135.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.2274509804" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qmE-jS-MdY" firstAttribute="leading" secondItem="rOS-42-gsY" secondAttribute="leading" constant="2" id="23b-Gs-d2h"/>
+                            <constraint firstItem="qmE-jS-MdY" firstAttribute="top" secondItem="rOS-42-gsY" secondAttribute="bottom" id="B9i-K8-aFH"/>
+                            <constraint firstItem="rOS-42-gsY" firstAttribute="leading" secondItem="aQE-LP-FFs" secondAttribute="leading" constant="-2" id="Cg0-7F-b9d"/>
+                            <constraint firstAttribute="width" constant="390" id="HQL-Rk-sAg"/>
+                            <constraint firstAttribute="trailing" secondItem="iPr-Nk-8ml" secondAttribute="trailing" constant="8" id="HUp-C3-q5a"/>
+                            <constraint firstItem="lgq-vy-zKc" firstAttribute="leading" secondItem="Qbz-tO-gGk" secondAttribute="leading" constant="4" id="HzB-jc-pPe"/>
+                            <constraint firstAttribute="trailing" secondItem="hUU-Ta-fzD" secondAttribute="trailing" constant="8" id="JkC-1Z-hIh"/>
+                            <constraint firstAttribute="bottom" secondItem="k42-Bg-RSE" secondAttribute="bottom" id="JpK-B0-VKg"/>
+                            <constraint firstItem="rOS-42-gsY" firstAttribute="top" secondItem="aQE-LP-FFs" secondAttribute="bottom" constant="3" id="RRe-Xy-OjI"/>
+                            <constraint firstItem="k42-Bg-RSE" firstAttribute="leading" secondItem="Qbz-tO-gGk" secondAttribute="leading" constant="73" id="a7g-MW-Zxp"/>
+                            <constraint firstItem="aQE-LP-FFs" firstAttribute="top" secondItem="lgq-vy-zKc" secondAttribute="top" id="aPy-RM-pcv"/>
+                            <constraint firstItem="aQE-LP-FFs" firstAttribute="leading" secondItem="Qbz-tO-gGk" secondAttribute="leading" constant="70" id="caZ-pY-H9A"/>
+                            <constraint firstItem="iPr-Nk-8ml" firstAttribute="top" secondItem="Qbz-tO-gGk" secondAttribute="top" constant="16" id="ka8-SD-doA"/>
+                            <constraint firstItem="lgq-vy-zKc" firstAttribute="top" secondItem="Qbz-tO-gGk" secondAttribute="top" constant="16" id="pxN-g5-Thu"/>
+                            <constraint firstItem="hUU-Ta-fzD" firstAttribute="top" secondItem="Qbz-tO-gGk" secondAttribute="top" constant="50" id="w4W-S9-QQH"/>
+                            <constraint firstAttribute="height" constant="105" id="xls-Co-pi2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Qbz-tO-gGk" firstAttribute="centerY" secondItem="IZL-X9-BOx" secondAttribute="centerY" constant="-7.5" id="3oQ-4R-obm"/>
+                    <constraint firstItem="IZL-X9-BOx" firstAttribute="centerY" secondItem="QVt-TL-tGp" secondAttribute="centerY" id="b1P-Wv-YJM"/>
+                    <constraint firstItem="IZL-X9-BOx" firstAttribute="centerX" secondItem="QVt-TL-tGp" secondAttribute="centerX" id="hgD-cR-9JI"/>
+                    <constraint firstItem="Qbz-tO-gGk" firstAttribute="centerX" secondItem="QVt-TL-tGp" secondAttribute="centerX" id="xRt-Os-OW5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="z1H-Fc-CMV"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="amountLabel" destination="k42-Bg-RSE" id="S0G-FH-NfX"/>
+                <outlet property="dateLabel" destination="qmE-jS-MdY" id="KXG-Rb-Mo2"/>
+                <outlet property="recipientNameLabel" destination="aQE-LP-FFs" id="tUG-Zr-65R"/>
+                <outlet property="statusLabel" destination="0X0-xa-0x4" id="4aH-M2-PrW"/>
+                <outlet property="statusView" destination="hUU-Ta-fzD" id="Aw3-fN-u5k"/>
+                <outlet property="visaInfoLabel" destination="rOS-42-gsY" id="K8K-pV-T3n"/>
+            </connections>
+            <point key="canvasLocation" x="-211.59420289855075" y="63.616071428571423"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="go" width="24" height="24"/>
+        <image name="visaicon" width="29" height="27.5"/>
+    </resources>
+</document>

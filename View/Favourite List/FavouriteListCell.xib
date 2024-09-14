@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ME-qO-0bO">
-                        <rect key="frame" x="14.5" y="14.5" width="343" height="88"/>
+                        <rect key="frame" x="0.0" y="14.5" width="372" height="88"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-6" translatesAutoresizingMaskIntoConstraints="NO" id="TeN-Qt-kIY">
                                 <rect key="frame" x="16" y="20" width="48" height="48"/>
@@ -49,10 +49,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.9137254901960784" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="343" id="7DL-Uy-m4a"/>
                             <constraint firstItem="TeN-Qt-kIY" firstAttribute="leading" secondItem="4ME-qO-0bO" secondAttribute="leading" constant="16" id="9Ak-UU-O4F"/>
                             <constraint firstItem="23N-gk-KBa" firstAttribute="leading" secondItem="TeN-Qt-kIY" secondAttribute="trailing" constant="16" id="BaL-LG-nBt"/>
                             <constraint firstItem="TeN-Qt-kIY" firstAttribute="top" secondItem="4ME-qO-0bO" secondAttribute="top" constant="20" symbolic="YES" id="GPZ-fS-D1F"/>
+                            <constraint firstAttribute="width" constant="372" id="Ls0-O7-VQo"/>
                             <constraint firstItem="Hwv-ir-eFc" firstAttribute="top" secondItem="23N-gk-KBa" secondAttribute="bottom" constant="8" symbolic="YES" id="Png-Sm-VkI"/>
                             <constraint firstAttribute="height" constant="88" id="XkT-dX-Ps3"/>
                             <constraint firstItem="Hwv-ir-eFc" firstAttribute="leading" secondItem="23N-gk-KBa" secondAttribute="leading" id="lkT-XQ-m3g"/>

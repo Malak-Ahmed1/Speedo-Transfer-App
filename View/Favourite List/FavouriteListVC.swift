@@ -59,10 +59,5 @@ extension FavouriteListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    private func tableView(_ tableView: UITableView, willDisplay cell: FavouriteListCell, forRowAt indexPath: IndexPath) {
-        
-        var frame = cell.contentView.frame
-        frame.size.width = 400
-        cell.contentView.frame = frame
-    }
+    
 }
